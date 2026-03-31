@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giang Do — UX Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --yellow: #EDF278;
+      --green: #173823;
+      --cream: #f0ede6;
+      --blue: #DAEDFF;
+      --green-text: #173823;
+      --yellow-text: #EDF278;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Marope', Georgia, serif;
+      background: var(--yellow);
+      color: var(--green);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: transparent;
+      mix-blend-mode: normal;
+    }
+
+    nav.scrolled {
+      background: rgba(23, 56, 35, 0.92);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Poppins', sans-serif;
+      text-decoration: none;
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding: 0 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      padding-top: 8rem;
+      padding-bottom: 12rem;
+    }
+
+    .hero-heading {
+      font-size: clamp(3rem, 5.5vw, 4.6rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      font-style: normal;
+    }
+
+    .hero-heading em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-bio {
+      padding-top: 0.5rem;
+    }
+
+    .hero-bio p {
+      font-size: 1.58rem;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--green);
+      opacity: 0.88;
+    }
+
+    .hero-bio p+p {
+      margin-top: 1.2rem;
+    }
+
+    /* wave transition */
+    .wave-transition {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave-transition svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ── SELECTED WORK ── */
+    .selected-work {
+      background: var(--green);
+      color: var(--cream);
+      padding: 5rem 3rem 7rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      opacity: 0.65;
+      letter-spacing: 0.01em;
+    }
+
+    /* Project grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 16/11;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .project-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(23, 56, 35, 0);
+      transition: background 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .project-card:hover .project-card-overlay {
+      background: rgba(23, 56, 35, 0.55);
+    }
+
+    .project-card-label {
+      color: white;
+      font-size: 2rem;
+      font-weight: 400;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .project-card:hover .project-card-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* placeholder cards */
+    .project-placeholder {
+      background: rgba(255, 255, 255, 0.07);
+      aspect-ratio: 16/11;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      opacity: 0.4;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green);
+      color: var(--cream);
+      text-align: center;
+      padding: 2.5rem;
+      font-size: 0.85rem;
+      opacity: 0.5;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── FADE IN ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .fade-up:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .fade-up:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    .fade-up:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    .fade-up:nth-child(6) {
+      transition-delay: 0.5s;
+    }
+
+    /* page load animation */
+    .hero-heading,
+    .hero-bio {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-bio {
+      animation-delay: 0.15s;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Giang Do</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="ux-industry.html">UX Industry Work</a></li>
+      <li><a href="graphic-design.html">Graphic Design</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1 class="hero-heading">Hi, I'm Giang — and I design with <em>curiosity.</em></h1>
+      </div>
+      <div class="hero-bio">
+        <p>I started out as an art director with an animation background, and somewhere along the way I fell in love
+          with the <em>why</em> behind design.</p>
+        <p>Now I'm a UX Designer specializing in design systems and multimodal interaction, combining visual craft with
+          research, and always asking one too many questions.</p>
+      </div>
+    </div>
+
+    <!-- Wave -->
+    <div class="wave-transition">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" fill="#173823" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="selected-work" id="work">
+    <div class="section-header">
+      <h2>Selected UX work</h2>
+      <p>A mix of product design, systems thinking, and research</p>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- Row 1 -->
+      <a href="foreverfit.html" class="project-card fade-up">
+        <img src="assets/images/foreverfit-thumb.jpg" alt="ForeverFit" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">ForeverFit</span>
+        </div>
+      </a>
+
+      <a href="fashion-fiesta.html" class="project-card fade-up">
+        <img src="assets/images/fashion-fiesta-thumb.jpg" alt="Fashion Fiesta" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">Fashion Fiesta</span>
+        </div>
+      </a>
+
+      <a href="flexistay.html" class="project-card fade-up">
+        <img src="assets/images/flexistay-thumb.jpg" alt="FlexiStay" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">FlexiStay</span>
+        </div>
+      </a>
+
+      <!-- Row 2 -->
+      <a href="fantastic-plastic.html" class="project-card fade-up">
+        <img src="assets/images/fantastic-plastic-thumb.jpg" alt="Fantastic Plastic" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">Fantastic Plastic</span>
+        </div>
+      </a>
+
+      <a href="design-system.html" class="project-card fade-up">
+        <img src="assets/images/design-system-thumb.jpg" alt="Design System" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">Design System</span>
+        </div>
+      </a>
+
+      <a href="llm-biases.html" class="project-card fade-up">
+        <img src="assets/images/llm-thumb.jpg" alt="HCI Research: Large Language Models and Biases" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">Large Language Models</span>
+        </div>
+      </a>
+
+      <a href="games-language.html" class="project-card fade-up">
+        <img src="assets/images/games-language.jpg" alt="Games & Language Learning" />
+        <div class="project-card-overlay">
+          <span class="project-card-label">Games & Language Learning</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Giang Do
+  </footer>
+
+  <script>
+    // Nav background on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
