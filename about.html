@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Giang Do</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: var(--blue);
+      color: var(--green);
+    }
+
+    .about-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 9rem 3rem 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 6rem;
+    }
+
+    .about-photo {
+      flex-shrink: 0;
+      width: 380px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: rgba(27, 61, 43, 0.08);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      opacity: 0.4;
+      border: 1px dashed var(--green);
+    }
+
+    .about-content {
+      flex: 1;
+    }
+
+    .about-greeting {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.015em;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .about-content p {
+      font-size: 1.15rem;
+      line-height: 1.78;
+      opacity: 0.88;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.9s ease 0.1s both;
+    }
+
+    .about-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      animation: fadeUp 0.9s ease 0.2s both;
+    }
+
+    .about-btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      padding: 1.1rem 2.4rem;
+      background: var(--green);
+      color: var(--cream);
+      text-decoration: none;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .about-btn:hover {
+      opacity: 0.82;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      color: var(--cream);
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+
+    .social-icon:hover {
+      opacity: 0.75;
+    }
+
+    @media (max-width: 768px) {
+      .about-page {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 8rem 1.5rem 4rem;
+      }
+
+      .about-photo {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-blue">
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Giang Do</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="ux-industry.html">UX Industry Work</a></li>
+      <li><a href="graphic-design.html">Graphic Design</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="about-page">
+    <div class="about-photo">
+      <img src="assets/about/giang-profilepic.jpg" alt="Giang Do" />
+    </div>
+
+    <div class="about-content">
+      <h1 class="about-greeting">Guten Tag!</h1>
+
+      <p>Welcome to my portfolio.</p>
+
+      <p>My name is Giang Do /zang doe/. If I have to describe myself in one word, it would be
+        <strong>curiosity</strong>. I started my career as an art director and animator, then followed my instinct
+        toward the question I couldn't stop asking: <em>why do people struggle with things that should just work?</em>
+        That question turned me into a UX designer.
+      </p>
+
+      <p>I'm based in Germany and work fully in German at IVU Traffic Technologies in Aachen, where I contribute to
+        transit software products and a company-wide Figma design system. Before Germany, I lived and worked in
+        Singapore and Vietnam. I'm currently finishing my Master's in Usability Engineering — which, honestly, has only
+        made me more curious about how people and interfaces interact with each other.</p>
+
+      <div class="about-cta">
+        <a href="contact.html" class="about-btn">Let's connect</a>
+
+        <div class="social-icons">
+          <!-- Replace # with your actual profile URLs -->
+          <a href="https://www.linkedin.com/in/giangdo0517" class="social-icon" target="_blank" title="LinkedIn">in</a>
+
+          <a href="https://www.behance.net/giangdo0517" class="social-icon" target="_blank" title="Behance">Be</a>
+          <a href="https://vimeo.com/giangdipenguin" class="social-icon" target="_blank" title="Vimeo">Vi</a>
+          <a href="https://www.instagram.com/giangdipenguin/" class="social-icon" target="_blank"
+            title="Instagram">ig</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  </script>
+</body>
+
+</html>

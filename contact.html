@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Giang Do</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: var(--yellow);
+      color: var(--green);
+    }
+
+    .contact-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 7rem;
+    }
+
+    .contact-left {
+      padding: 5rem 4rem 5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .contact-email {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      opacity: 0.65;
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.8s ease 0.05s both;
+    }
+
+    .contact-email a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* form */
+    .contact-form {
+      animation: fadeUp 0.9s ease 0.1s both;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      opacity: 0.6;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .form-label span {
+      opacity: 0.5;
+      font-size: 0.7rem;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: rgba(27, 61, 43, 0.07);
+      border: none;
+      border-radius: 2px;
+      padding: 0.85rem 1rem;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1rem;
+      color: var(--green);
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      background: rgba(27, 61, 43, 0.12);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-submit {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1rem 2.2rem;
+      background: var(--green);
+      color: var(--cream);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      opacity: 0.82;
+    }
+
+    /* right panel — image */
+    .contact-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .contact-img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      background: rgba(27, 61, 43, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      opacity: 0.3;
+      border-left: 1px dashed rgba(27, 61, 43, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .contact-page {
+        grid-template-columns: 1fr;
+        padding-top: 6rem;
+      }
+
+      .contact-left {
+        padding: 3rem 1.5rem;
+      }
+
+      .contact-right {
+        display: none;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-yellow">
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Giang Do</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="ux-industry.html">UX Industry Work</a></li>
+      <li><a href="graphic-design.html">Graphic Design</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="contact-page">
+    <div class="contact-left">
+      <h1 class="contact-title">Contact</h1>
+      <p class="contact-email">Email: <a href="mailto:giangdo0517@gmail.com">giangdo0517@gmail.com</a></p>
+
+      <!-- Note: for a real contact form, use Formspree (free) or Netlify Forms.
+           Replace action="#" with your Formspree endpoint, e.g. https://formspree.io/f/yourcode -->
+      <div class="contact-form">
+        <div class="form-row">
+          <div>
+            <label class="form-label">First Name <span>(required)</span></label>
+            <input type="text" class="form-input" placeholder="" />
+          </div>
+          <div>
+            <label class="form-label">Last Name <span>(required)</span></label>
+            <input type="text" class="form-input" placeholder="" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email <span>(required)</span></label>
+          <input type="email" class="form-input" placeholder="" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message <span>(required)</span></label>
+          <textarea class="form-textarea"></textarea>
+        </div>
+        <button class="form-submit">Send</button>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <!-- Replace with: <img src="assets/images/contact-photo.jpg" alt="" /> -->
+      <div class="contact-img-placeholder">[ Replace with a photo ]</div>
+    </div>
+  </main>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  </script>
+</body>
+
+</html>

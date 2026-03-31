@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games & Language Learning — Giang Do</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: var(--purple);
+      color: var(--green);
+    }
+  </style>
+</head>
+
+<body class="theme-purple">
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Giang Do</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="ux-industry.html">UX Industry Work</a></li>
+      <li><a href="graphic-design.html">Graphic Design</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="case-hero">
+    <p class="case-subtitle">UX Research · Gamification</p>
+    <h1 class="case-title-text">Games &amp; Language Learning</h1>
+  </section>
+
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="case-intro fade-up">
+    <div class="case-meta">
+      <div class="meta-item">
+        <div class="meta-label">My Role</div>
+        <div class="meta-value">UX Researcher · Team Member</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Type</div>
+        <div class="meta-value">University Group Project</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">Bilge Zeynep Erdogan · Do Thi Ngan Giang · Shreya Zhao · Hansila Sajid</div>
+      </div>
+    </div>
+    <div class="case-description">
+      <p>This project explores how games can be leveraged as a medium for language learning — investigating engagement
+        patterns, learning outcomes, and the intersection of play and pedagogy through a UX research lens.</p>
+      <p>The team investigated existing gamified language learning tools, conducted user research, and synthesised
+        findings into actionable design recommendations for more effective and engaging language learning experiences.
+      </p>
+    </div>
+  </div>
+
+  <div class="case-images">
+    <!-- <div class="case-img-full fade-up">
+      <div class="img-placeholder">[ Design system overview — component library ]</div>
+      <p class="img-caption">Component library overview</p>
+    </div>
+    <div class="img-row fade-up">
+      <div class="case-img-full">
+        <div class="img-placeholder">[ Token architecture ]</div>
+        <p class="img-caption">Design tokens</p>
+      </div>
+      <div class="case-img-full">
+        <div class="img-placeholder">[ Atom / molecule components ]</div>
+        <p class="img-caption">Atomic components</p>
+      </div>
+    </div>
+    <div class="case-img-full fade-up">
+      <div class="img-placeholder">[ Documentation & usage guidelines ]</div>
+      <p class="img-caption">Documentation</p>
+    </div> -->
+    <div id="image-container"></div>
+
+    <div id="psych-container"></div>
+
+    <script>
+      const container = document.getElementById("psych-container");
+
+      const totalImages = 26;
+      const skipImages = []; // put numbers here if you want to skip, e.g., [1, 5, 26]
+
+      for (let i = 1; i <= totalImages; i++) {
+        if (skipImages.includes(i)) continue;
+
+        let num = i.toString().padStart(2, '0');
+
+        const div = document.createElement("div");
+        div.className = "case-img-full fade-up";
+
+        const img = document.createElement("img");
+        img.src = `assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-${num}.png`;
+        img.alt = `Psych Image ${num}`;
+        img.loading = "lazy";
+
+        div.appendChild(img);
+        container.appendChild(div);
+      }
+    </script>
+  </div>
+
+  <div class="next-project fade-up">
+    <a href="foreverfit.html" class="next-link">
+      <p class="next-label">Back to first project</p>
+      <p class="next-title">ForeverFit →</p>
+    </a>
+  </div>
+
+  <footer>© 2026 Giang Do · Made with curiosity</footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>
