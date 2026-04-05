@@ -285,41 +285,76 @@ nav {
   gap: 0;
 }
 
-/* ── NEXT PROJECT ── */
+/* ── NEXT / PREV PROJECT NAVIGATION ── */
 .next-project {
-  padding: 5rem 3rem;
+  padding: 0;
   border-top: 1px solid currentColor;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* each nav item */
+.proj-nav-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-
-.next-label {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.4;
-  margin-bottom: 0.5rem;
-}
-
-.next-title {
-  font-size: 2.2rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: italic;
-  font-weight: 200;
-  letter-spacing: -0.01em;
-
-}
-
-.next-link {
+  gap: 1.2rem;
+  padding: 2.8rem 3rem;
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition: background 0.25s;
+  color: inherit;
 }
 
-.next-link:hover {
-  opacity: 0.6;
+.proj-nav-item:first-child {
+  border-right: 1px solid currentColor;
 }
+
+.proj-nav-item:hover {
+  opacity: 0.7;
+}
+
+.proj-nav-arrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  opacity: 0.5;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.proj-nav-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.proj-nav-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.38;
+}
+
+.proj-nav-title {
+  font-family: 'Marope', Georgia, serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+/* right-aligned "next" item */
+.proj-nav-item.next {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* colour inheritance — text always matches page theme */
+.theme-dark  .proj-nav-item { color: var(--cream); }
+.theme-yellow .proj-nav-item { color: var(--green); }
+.theme-cream  .proj-nav-item { color: var(--green); }
+.theme-blue   .proj-nav-item { color: var(--green); }
+.theme-purple .proj-nav-item { color: var(--green); }
 
 /* ── FOOTER ── */
 footer {
@@ -378,30 +413,120 @@ footer {
   transform: translateY(0);
 }
 
-/* ── RESPONSIVE ── */
+/* ══════════════════════════════════════
+   HAMBURGER NAV
+══════════════════════════════════════ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 200;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+
+/* open state — becomes X */
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* mobile overlay menu */
+.nav-mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+}
+
+.nav-mobile-overlay.open { display: flex; }
+
+/* theme-based overlay colours */
+.theme-yellow  .nav-mobile-overlay,
+.theme-cream   .nav-mobile-overlay { background: var(--yellow); }
+body.theme-yellow .nav-mobile-overlay { background: #EDF278; }
+body:not([class*="theme"]) .nav-mobile-overlay { background: #EDF278; }
+.theme-dark    .nav-mobile-overlay { background: var(--green); }
+.theme-blue    .nav-mobile-overlay { background: var(--blue); }
+.theme-purple  .nav-mobile-overlay { background: var(--purple); }
+.theme-cream   .nav-mobile-overlay { background: var(--cream); }
+
+.nav-mobile-overlay a {
+  font-family: 'Marope', Georgia, serif;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.nav-mobile-overlay a:hover { opacity: 1; }
+
+/* colour for overlay links */
+.theme-dark   .nav-mobile-overlay a { color: var(--cream); }
+.theme-yellow .nav-mobile-overlay a,
+.theme-cream  .nav-mobile-overlay a,
+.theme-blue   .nav-mobile-overlay a,
+.theme-purple .nav-mobile-overlay a { color: var(--green); }
+
+/* hamburger button colour */
+.theme-dark   .nav-hamburger { color: var(--cream); }
+.theme-yellow .nav-hamburger,
+.theme-cream  .nav-hamburger,
+.theme-blue   .nav-hamburger,
+.theme-purple .nav-hamburger { color: var(--green); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — TABLET & MOBILE
+══════════════════════════════════════ */
 @media (max-width: 768px) {
+
+  /* ── Nav ── */
   nav {
     padding: 1.2rem 1.5rem;
   }
 
   .nav-links {
-    gap: 1rem;
+    display: none; /* hidden — replaced by overlay */
   }
 
-  .nav-links a {
-    font-size: 0.72rem;
+  .nav-hamburger {
+    display: flex;
   }
 
+  /* ── Hero ── */
   .case-hero {
     padding: 8rem 1.5rem 3rem;
   }
 
+  .case-title-text {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  /* ── Case intro ── */
   .case-intro {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 3rem 1.5rem;
   }
 
+  /* ── Images ── */
   .case-images {
     padding: 0 1.5rem 2rem;
   }
@@ -410,7 +535,64 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  /* ── Next/Prev nav ── */
   .next-project {
-    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .proj-nav-item:first-child {
+    border-right: none;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .proj-nav-item {
+    padding: 2rem 1.5rem;
+  }
+
+  .proj-nav-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* ── Homepage specific mobile ── */
+@media (max-width: 768px) {
+
+  /* hero two-col → single col */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 7rem;
+    padding-bottom: 8rem;
+  }
+
+  .hero {
+    padding: 0 1.5rem;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.4rem, 9vw, 3.5rem);
+  }
+
+  .hero-bio p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  /* project grid → 1 column */
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card img {
+    aspect-ratio: 16/10;
+  }
+
+  .selected-work {
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
   }
 }

@@ -1,361 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ForeverFit — Giang Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --green: #173823;
-      --cream: #f0ede6;
-      --yellow: #EDF278;
-      --blue: #DAEDFF;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'EB Garamond', Georgia, serif;
-      background: var(--green);
-      color: var(--cream);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.4rem 3rem;
-      background: transparent;
-      transition: background 0.3s;
-    }
-
-    nav.scrolled {
-      background: rgba(23, 56, 35, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      color: var(--cream);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      text-decoration: none;
-      color: var(--cream);
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      opacity: 0.75;
-      transition: opacity 0.2s;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    /* ── MARQUEE HEADER ── */
-    .case-hero {
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-end;
-      padding: 0 3rem 4rem;
-      padding-top: 9rem;
-    }
-
-    .case-title-text {
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      animation: fadeUp 0.8s ease both;
-    }
-
-    /* ── MARQUEE ── */
-    .marquee-wrapper {
-      overflow: hidden;
-      width: 100%;
-      padding: 1.5rem 0;
-      border-top: 1px solid rgba(240, 237, 230, 0.15);
-      border-bottom: 1px solid rgba(240, 237, 230, 0.15);
-      margin: 2.5rem 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      white-space: nowrap;
-      animation: marquee 18s linear infinite;
-    }
-
-    .marquee-item {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      font-style: normal;
-      padding-right: 2rem;
-      color: var(--cream);
-      letter-spacing: -0.01em;
-      flex-shrink: 0;
-    }
-
-    .marquee-sep {
-      padding-right: 2rem;
-      opacity: 0.4;
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
-    /* ── INTRO SECTION ── */
-    .case-intro {
-      padding: 5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .case-meta h2 {
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-    }
-
-    .meta-item {
-      margin-bottom: 1.4rem;
-    }
-
-    .meta-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.5;
-      margin-bottom: 0.3rem;
-    }
-
-    .meta-value {
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.5;
-    }
-
-    .case-description p {
-      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
-      font-weight: 400;
-      line-height: 1.78;
-      opacity: 0.88;
-    }
-
-    .case-description p+p {
-      margin-top: 1.4rem;
-    }
-
-    /* ── IMAGE BLOCKS ── */
-    .case-images {
-      padding: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .case-img-full {
-      width: 100%;
-      border-radius: 6px;
-      display: block;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .case-img-full img {
-      width: 100%;
-      border-radius: 6px;
-      display: block;
-    }
-
-    .img-caption {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 0.38;
-      margin-top: 0.7rem;
-    }
-
-    .img-placeholder {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      opacity: 0.35;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-    }
-
-    /* ── NEXT PROJECT ── */
-    .next-project {
-      padding: 5rem 3rem;
-      border-top: 1px solid rgba(240, 237, 230, 0.12);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .next-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      opacity: 0.45;
-      margin-bottom: 0.5rem;
-    }
-
-    .next-title {
-      font-size: 2rem;
-      font-weight: 400;
-    }
-
-    .next-link {
-      text-decoration: none;
-      color: var(--cream);
-      transition: opacity 0.2s;
-    }
-
-    .next-link:hover {
-      opacity: 0.7;
-    }
-
-    .next-arrow {
-      font-size: 2.5rem;
-      font-weight: 300;
-      opacity: 0.5;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      opacity: 0.35;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    body { background: var(--green); color: var(--cream); }
   </style>
+  
 </head>
-
-<body>
-
-  <!-- NAV -->
+<body class="theme-dark">
   <nav id="nav">
     <a href="index.html" class="nav-logo">Giang Do</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="index.html#work" class="active">UX Design</a></li>
       <li><a href="ux-industry.html">UX Industry Work</a></li>
       <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
-  <!-- CASE HERO -->
   <section class="case-hero">
+    <p class="case-subtitle">UX Design · University Project</p>
     <h1 class="case-title-text">ForeverFit</h1>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <!-- duplicated for seamless loop -->
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
-      <span class="marquee-item">ForeverFit</span>
-      <span class="marquee-item marquee-sep">*</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">ForeverFit</span><span class="marquee-item">&nbsp;*&nbsp;</span>
     </div>
   </div>
 
-  <!-- INTRO -->
   <div class="case-intro fade-up">
     <div class="case-meta">
       <div class="meta-item">
@@ -372,196 +69,76 @@
       </div>
     </div>
     <div class="case-description">
-      <p><em>ForeverFit</em> is a project that aims to provide a comprehensive solution for older adults to promote a
-        healthier lifestyle through personalized exercise programs, uplifting motivational messages, and practical daily
-        routine suggestions.</p>
-      <p>This initiative is developed as a collaborative university group project for the Applied Research Project
-        course. My contributions spanned user interview analysis, designing usability test strategies, structuring
-        information architecture, and planning targeted marketing initiatives.</p>
+      <p><em>ForeverFit</em> is a project that aims to provide a comprehensive solution for older adults to promote a healthier lifestyle through personalized exercise programs, uplifting motivational messages, and practical daily routine suggestions.</p>
+      <p>My contributions spanned user interview analysis, designing usability test strategies, structuring information architecture, and planning targeted marketing initiatives.</p>
     </div>
   </div>
 
-  <!-- PROTOTYPE-->
-  <div class="figma-prototype-wrapper">
-    <div>
-      <p class="case-description">Clickable prototype that users can interact with to test the flows and functions.</p>
-    </div>
-    <p></p>
-    <iframe
-      src="https://embed.figma.com/proto/gEDS6YNChqYOQfCP2B21FO/Wellness-app-Wireframe?kind=proto&node-id=763-4181&scaling=scale-down&starting-point-node-id=763%3A4188&embed-host=share"
-      title="Figma Prototype" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture">
-    </iframe>
-  </div>
-
-  <style>
-    /* Responsive container keeping aspect ratio */
-    .figma-prototype-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      /* adjust max width */
-      margin: 0 auto;
-      /* center on page */
-      padding-top: 56.25%;
-      /* 16:9 aspect ratio (450/800) */
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .figma-prototype-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-  </style>
-
-  <!-- IMAGE BLOCKS — replace placeholders with your real screenshots -->
   <div class="case-images">
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-01.png" alt="..." />
+    <div style="position:relative;width:100%;max-width:800px;margin:2rem auto;padding-top:56.25%;overflow:hidden;border-radius:6px;">
+      <iframe src="https://embed.figma.com/proto/gEDS6YNChqYOQfCP2B21FO/Wellness-app-Wireframe?kind=proto&node-id=763-4181&scaling=scale-down&starting-point-node-id=763%3A4188&embed-host=share" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="autoplay;fullscreen;encrypted-media;picture-in-picture"></iframe>
     </div>
+    <p class="img-caption" style="text-align:center;margin-bottom:2rem;">Clickable prototype — test the flows</p>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-01.png" alt="ForeverFit 1" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-02.png" alt="ForeverFit 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-03.png" alt="ForeverFit 3" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-04.png" alt="ForeverFit 4" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-05.png" alt="ForeverFit 5" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-06.png" alt="ForeverFit 6" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-07.png" alt="ForeverFit 7" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-08.png" alt="ForeverFit 8" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-09.png" alt="ForeverFit 9" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-10.png" alt="ForeverFit 10" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-11.png" alt="ForeverFit 11" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-12.png" alt="ForeverFit 12" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-13.png" alt="ForeverFit 13" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-14.png" alt="ForeverFit 14" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-15.png" alt="ForeverFit 15" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-16.png" alt="ForeverFit 16" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-17.png" alt="ForeverFit 17" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-18.png" alt="ForeverFit 18" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-19.png" alt="ForeverFit 19" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-20.png" alt="ForeverFit 20" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-21.png" alt="ForeverFit 21" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-22.png" alt="ForeverFit 22" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/foreverfit/Portfolio ARPA (1)-23.png" alt="ForeverFit 23" loading="lazy"/></div>
+  </div>
 
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-02.png" alt="..." />
+<div class="next-project">
+  <span class="proj-nav-item prev" style="opacity:0.2;pointer-events:none;">
+    <span class="proj-nav-arrow">&#8249;</span>
+    <div class="proj-nav-text"><span class="proj-nav-label">Previous</span><span class="proj-nav-title">—</span></div>
+  </span>
+  <a href="fashion-fiesta.html" class="proj-nav-item next">
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Next</span>
+      <span class="proj-nav-title">Fashion Fiesta</span>
     </div>
+    <span class="proj-nav-arrow">&#8250;</span>
+  </a>
+</div>
 
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-03.png" alt="..." />
-    </div>
+  <footer>© 2026 Giang Do · Made with curiosity</footer>
 
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-04.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-05.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-06.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-07.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-08.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-09.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-10.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-11.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-12.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-13.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-14.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-15.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-16.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-17.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-18.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-19.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-20.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-21.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-22.png" alt="..." />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/foreverfit/Portfolio ARPA (1)-23.png" alt="..." />
-    </div>
-    ```
-
-    <!-- <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Insert research / process image ]</div>
-      <p class="img-caption">Research & user interviews</p>
-    </div>
-
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Insert wireframes / IA ]</div>
-      <p class="img-caption">Information architecture & wireframes</p>
-    </div>
-
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Insert final UI ]</div>
-      <p class="img-caption">Final UI screens</p>
-    </div>
-
-  </div> -->
-
-    <!-- NEXT PROJECT -->
-    <div class="next-project fade-up">
-      <a href="fashion-fiesta.html" class="next-link">
-        <p class="next-label">Next project</p>
-        <p class="next-title">Fashion Fiesta →</p>
-      </a>
-      <span class="next-arrow">↗</span>
-    </div>
-
-    <footer>© 2025 Giang Do · Made with curiosity</footer>
-
-    <script>
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 60);
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            observer.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-    </script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
 </body>
-
 </html>

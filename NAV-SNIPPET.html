@@ -1,0 +1,95 @@
+<!-- 
+  ════════════════════════════════════════
+  COPY THIS NAV BLOCK INTO EVERY PAGE
+  Change:
+  - class="active" to the current page's link
+  - body class to match the page theme:
+      theme-yellow  → yellow bg pages (index, graphic-design, contact)
+      theme-dark    → dark green bg pages (foreverfit, fantastic-plastic, design-system, ux-industry)
+      theme-cream   → cream bg pages (flexistay, cv)
+      theme-blue    → blue bg pages (llm-biases, about, ux-industry)
+      theme-purple  → purple bg pages (games-language)
+  ════════════════════════════════════════
+-->
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Giang Do</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">UX Design</a></li>
+    <li><a href="ux-industry.html">UX Industry Work</a></li>
+    <li><a href="graphic-design.html">Graphic Design</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="nav-mobile-overlay" id="mobileMenu">
+  <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+  <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+  <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+  <a href="cv.html" onclick="closeMenu()">CV</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+</div>
+
+
+<!-- ════════════════════════════════════════
+  NEW NEXT/PREV NAVIGATION — replaces old .next-project
+  Use this at the bottom of every case study page.
+  Update href, prev/next titles as needed.
+  Remove the "prev" item if there's no previous page.
+════════════════════════════════════════ -->
+
+<div class="next-project">
+  <!-- PREV -->
+  <a href="PREV_PAGE.html" class="proj-nav-item prev">
+    <span class="proj-nav-arrow">‹</span>
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Previous</span>
+      <span class="proj-nav-title">Previous Project Name</span>
+    </div>
+  </a>
+  <!-- NEXT -->
+  <a href="NEXT_PAGE.html" class="proj-nav-item next">
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Next</span>
+      <span class="proj-nav-title">Next Project Name</span>
+    </div>
+    <span class="proj-nav-arrow">›</span>
+  </a>
+</div>
+
+
+<!-- ════════════════════════════════════════
+  HAMBURGER JS — add inside your <script> tag
+════════════════════════════════════════ -->
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  const obs = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  }), { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>

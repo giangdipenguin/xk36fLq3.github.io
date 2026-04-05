@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Games & Language Learning — Giang Do</title>
+  <title>Games &amp; Language Learning — Giang Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      background: var(--purple);
-      color: var(--green);
-    }
+    body { background: var(--purple); color: var(--green); }
   </style>
+  
 </head>
-
 <body class="theme-purple">
   <nav id="nav">
     <a href="index.html" class="nav-logo">Giang Do</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="index.html#work" class="active">UX Design</a></li>
       <li><a href="ux-industry.html">UX Industry Work</a></li>
       <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
   <section class="case-hero">
     <p class="case-subtitle">UX Research · Gamification</p>
@@ -39,10 +44,12 @@
 
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">Games & Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">Games &amp; Language Learning</span><span class="marquee-item">&nbsp;*&nbsp;</span>
     </div>
   </div>
 
@@ -62,77 +69,76 @@
       </div>
     </div>
     <div class="case-description">
-      <p>This project explores how games can be leveraged as a medium for language learning — investigating engagement
-        patterns, learning outcomes, and the intersection of play and pedagogy through a UX research lens.</p>
-      <p>The team investigated existing gamified language learning tools, conducted user research, and synthesised
-        findings into actionable design recommendations for more effective and engaging language learning experiences.
-      </p>
+      <p>This project explores how games can be leveraged as a medium for language learning — investigating engagement patterns, learning outcomes, and the intersection of play and pedagogy through a UX research lens.</p>
+      <p>The team investigated existing gamified language learning tools, conducted user research, and synthesised findings into actionable design recommendations for more effective and engaging learning experiences.</p>
     </div>
   </div>
 
   <div class="case-images">
-    <!-- <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Design system overview — component library ]</div>
-      <p class="img-caption">Component library overview</p>
-    </div>
-    <div class="img-row fade-up">
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Token architecture ]</div>
-        <p class="img-caption">Design tokens</p>
-      </div>
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Atom / molecule components ]</div>
-        <p class="img-caption">Atomic components</p>
-      </div>
-    </div>
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Documentation & usage guidelines ]</div>
-      <p class="img-caption">Documentation</p>
-    </div> -->
-    <div id="image-container"></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-01.png" alt="Games 1" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-02.png" alt="Games 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-03.png" alt="Games 3" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-04.png" alt="Games 4" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-05.png" alt="Games 5" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-06.png" alt="Games 6" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-07.png" alt="Games 7" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-08.png" alt="Games 8" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-09.png" alt="Games 9" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-10.png" alt="Games 10" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-11.png" alt="Games 11" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-12.png" alt="Games 12" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-13.png" alt="Games 13" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-14.png" alt="Games 14" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-15.png" alt="Games 15" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-16.png" alt="Games 16" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-17.png" alt="Games 17" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-18.png" alt="Games 18" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-19.png" alt="Games 19" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-20.png" alt="Games 20" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-21.png" alt="Games 21" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-22.png" alt="Games 22" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-23.png" alt="Games 23" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-24.png" alt="Games 24" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-25.png" alt="Games 25" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-26.png" alt="Games 26" loading="lazy"/></div>
 
-    <div id="psych-container"></div>
-
-    <script>
-      const container = document.getElementById("psych-container");
-
-      const totalImages = 26;
-      const skipImages = []; // put numbers here if you want to skip, e.g., [1, 5, 26]
-
-      for (let i = 1; i <= totalImages; i++) {
-        if (skipImages.includes(i)) continue;
-
-        let num = i.toString().padStart(2, '0');
-
-        const div = document.createElement("div");
-        div.className = "case-img-full fade-up";
-
-        const img = document.createElement("img");
-        img.src = `assets/games/PSYCH-PRESENTATION_3.0 (08.02.24)-${num}.png`;
-        img.alt = `Psych Image ${num}`;
-        img.loading = "lazy";
-
-        div.appendChild(img);
-        container.appendChild(div);
-      }
-    </script>
   </div>
 
-  <div class="next-project fade-up">
-    <a href="foreverfit.html" class="next-link">
-      <p class="next-label">Back to first project</p>
-      <p class="next-title">ForeverFit →</p>
-    </a>
-  </div>
+<div class="next-project">
+  <a href="llm-biases.html" class="proj-nav-item prev">
+    <span class="proj-nav-arrow">&#8249;</span>
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Previous</span>
+      <span class="proj-nav-title">LLM &amp; Biases</span>
+    </div>
+  </a>
+  <span class="proj-nav-item next" style="opacity:0.2;pointer-events:none;">
+    <div class="proj-nav-text"><span class="proj-nav-label">Next</span><span class="proj-nav-title">—</span></div>
+    <span class="proj-nav-arrow">&#8250;</span>
+  </span>
+</div>
 
   <footer>© 2026 Giang Do · Made with curiosity</footer>
 
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   </script>
 </body>
-
 </html>

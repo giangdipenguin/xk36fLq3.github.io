@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fantastic Plastic — Giang Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      background: var(--green);
-      color: var(--cream);
-    }
+    body { background: var(--green); color: var(--cream); }
   </style>
+  
 </head>
-
 <body class="theme-dark">
   <nav id="nav">
     <a href="index.html" class="nav-logo">Giang Do</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="index.html#work" class="active">UX Design</a></li>
       <li><a href="ux-industry.html">UX Industry Work</a></li>
       <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
   <section class="case-hero">
     <p class="case-subtitle">Design Sprint · Sustainability</p>
@@ -68,138 +73,78 @@
       </div>
     </div>
     <div class="case-description">
-      <p><em>Fantastic Plastic</em> was the culmination of an intense yet exhilarating, 5-day Sprint Challenge.
-        Partnering with Evonik, a leader in the chemical industry, we were challenged to develop a web-based application
-        to provide long-term solutions for plastic recycling that support a circular economy.</p>
-      <p>The sprint demanded rapid ideation, user interviews, storyboarding, and prototype development — all compressed
-        into five days. A genuine test of design under pressure.</p>
+      <p><em>Fantastic Plastic</em> was the culmination of an intense yet exhilarating 5-day Sprint Challenge. Partnering with Evonik, a leader in the chemical industry, we were challenged to develop a web-based application to support plastic recycling and a circular economy.</p>
+      <p>The sprint demanded rapid ideation, user interviews, storyboarding, and prototype development — all compressed into five days. A genuine test of design under pressure.</p>
     </div>
   </div>
 
   <div class="case-images">
-    <!-- <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Sprint overview / team process ]</div>
-      <p class="img-caption">5-day sprint — Fantastic Plastic</p>
-    </div> -->
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-01.png" alt="Fantastic Plastic 1" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/fantastic1.jpg" alt="Photo 1" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/fantastic2.jpg" alt="Photo 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/fantastic3.jpg" alt="Photo 3" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-02.png" alt="Fantastic Plastic 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-03.png" alt="Fantastic Plastic 3" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-04.png" alt="Fantastic Plastic 4" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-05.png" alt="Fantastic Plastic 5" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-06.png" alt="Fantastic Plastic 6" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-07.png" alt="Fantastic Plastic 7" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-08.png" alt="Fantastic Plastic 8" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-09.png" alt="Fantastic Plastic 9" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-10.png" alt="Fantastic Plastic 10" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-11.png" alt="Fantastic Plastic 11" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-12.png" alt="Fantastic Plastic 12" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-13.png" alt="Fantastic Plastic 13" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-14.png" alt="Fantastic Plastic 14" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-15.png" alt="Fantastic Plastic 15" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-16.png" alt="Fantastic Plastic 16" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-17.png" alt="Fantastic Plastic 17" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-18.png" alt="Fantastic Plastic 18" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-19.png" alt="Fantastic Plastic 19" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-20.png" alt="Fantastic Plastic 20" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-21.png" alt="Fantastic Plastic 21" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-22.png" alt="Fantastic Plastic 22" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/fantasticplastic/Portfolio Fantastic Plastic-24.png" alt="Fantastic Plastic 24" loading="lazy"/></div>
+  </div>
 
+<div class="next-project">
+  <a href="flexistay.html" class="proj-nav-item prev">
+    <span class="proj-nav-arrow">&#8249;</span>
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Previous</span>
+      <span class="proj-nav-title">FlexiStay</span>
+    </div>
+  </a>
+  <a href="design-system.html" class="proj-nav-item next">
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Next</span>
+      <span class="proj-nav-title">Design System</span>
+    </div>
+    <span class="proj-nav-arrow">&#8250;</span>
+  </a>
+</div>
 
+  <footer>© 2026 Giang Do · Made with curiosity</footer>
 
-
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-01.png" alt="Portfolio image 1" />
-    </div>
-
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/fantastic1.jpg" alt="Fantastic image 1" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/fantastic2.jpg" alt="Fantastic image 2" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/fantastic3.jpg" alt="Fantastic image 3" />
-    </div>
-
-
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-02.png" alt="Portfolio image 2" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-03.png" alt="Portfolio image 3" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-04.png" alt="Portfolio image 4" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-05.png" alt="Portfolio image 5" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-06.png" alt="Portfolio image 6" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-07.png" alt="Portfolio image 7" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-08.png" alt="Portfolio image 8" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-09.png" alt="Portfolio image 9" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-10.png" alt="Portfolio image 10" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-11.png" alt="Portfolio image 11" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-12.png" alt="Portfolio image 12" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-13.png" alt="Portfolio image 13" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-14.png" alt="Portfolio image 14" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-15.png" alt="Portfolio image 15" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-16.png" alt="Portfolio image 16" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-17.png" alt="Portfolio image 17" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-18.png" alt="Portfolio image 18" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-19.png" alt="Portfolio image 19" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-20.png" alt="Portfolio image 20" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-21.png" alt="Portfolio image 21" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-22.png" alt="Portfolio image 22" />
-    </div>
-    <!-- <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-23.png" alt="Portfolio image 23" />
-    </div> -->
-    <div class="case-img-full fade-up">
-      <img src="assets/fantasticplastic/Portfolio Fantastic Plastic-24.png" alt="Portfolio image 24" />
-    </div>
-    <!-- <div class="img-row fade-up">
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Storyboard ]</div>
-        <p class="img-caption">Storyboarding</p>
-      </div>
-      <div class="case-img-full">
-        <div class="img-placeholder">[ User interview notes ]</div>
-        <p class="img-caption">User interviews</p>
-      </div>
-    </div>
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Final prototype ]</div>
-      <p class="img-caption">Prototype — circular economy app</p>
-    </div>
-  </div> -->
-
-    <div class="next-project fade-up">
-      <a href="design-system.html" class="next-link">
-        <p class="next-label">Next project</p>
-        <p class="next-title">Design System →</p>
-      </a>
-    </div>
-
-    <footer>© 2026 Giang Do · Made with curiosity</footer>
-
-    <script>
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-      const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
-      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-    </script>
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
 </body>
-
 </html>

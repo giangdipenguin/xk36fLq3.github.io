@@ -383,7 +383,20 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
   <!-- PAGE INTRO -->
   <div class="gd-intro">
@@ -451,6 +464,18 @@
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
     const obs = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     }), { threshold: 0.08 });

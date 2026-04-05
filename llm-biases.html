@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LLM & Biases — Giang Do</title>
+  <title>LLM &amp; Biases — Giang Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      background: var(--blue);
-      color: var(--green);
-    }
+    body { background: var(--blue); color: var(--green); }
   </style>
+  
 </head>
-
 <body class="theme-blue">
   <nav id="nav">
     <a href="index.html" class="nav-logo">Giang Do</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="index.html#work" class="active">UX Design</a></li>
       <li><a href="ux-industry.html">UX Industry Work</a></li>
       <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
   <section class="case-hero">
     <p class="case-subtitle">HCI Research · Large Language Models</p>
-    <h1 class="case-title-text">Large Language Models and Biases:<br><em>A Human Computer Interaction Study</em></h1>
+    <h1 class="case-title-text">LLM &amp; Biases</h1>
   </section>
 
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
-      <span class="marquee-item">LLM & Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
+      <span class="marquee-item">LLM &amp; Biases</span><span class="marquee-item">&nbsp;*&nbsp;</span>
     </div>
   </div>
 
@@ -64,116 +69,74 @@
       </div>
     </div>
     <div class="case-description">
-      <p>This study seeks to systematically investigate and address potential biases in Large Language Models related to
-        race and gender, and to measure user interactions and perception of LLMs.</p>
-      <p>Working as a UX Researcher and Data Analyst, I contributed to study design, interview facilitation, and the
-        qualitative and quantitative analysis of participant responses — bringing a human-centred lens to a
-        fundamentally technical question.</p>
+      <p>This study seeks to systematically investigate and address potential biases in Large Language Models related to race and gender, and to measure user interactions and perception of LLMs.</p>
+      <p>Working as UX Researcher and Data Analyst, I contributed to study design, interview facilitation, and qualitative and quantitative analysis of participant responses.</p>
     </div>
   </div>
 
   <div class="case-images">
-    <!-- <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Study design overview ]</div>
-      <p class="img-caption">Research framework & study design</p>
-    </div>
-    <div class="img-row fade-up">
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Interview protocol ]</div>
-        <p class="img-caption">Interview methodology</p>
-      </div>
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Data analysis ]</div>
-        <p class="img-caption">Findings & analysis</p>
-      </div>
-    </div>
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Final presentation / key insights ]</div>
-      <p class="img-caption">Key insights</p>
-    </div>
-  </div> -->
-    <div id="llm-container"></div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-01.png" alt="LLM 01" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-02.png" alt="LLM 02" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-03.png" alt="LLM 03" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-04.png" alt="LLM 04" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-05.png" alt="LLM 05" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-06.png" alt="LLM 06" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-07.png" alt="LLM 07" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-08.png" alt="LLM 08" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-09.png" alt="LLM 09" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-10.png" alt="LLM 10" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-11.png" alt="LLM 11" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-12.png" alt="LLM 12" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-13.png" alt="LLM 13" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-14.png" alt="LLM 14" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-15.png" alt="LLM 15" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-16.png" alt="LLM 16" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-17.png" alt="LLM 17" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-18.png" alt="LLM 18" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-19.png" alt="LLM 19" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-20.png" alt="LLM 20" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-21.png" alt="LLM 21" />
-    </div>
-    <div class="case-img-full fade-up">
-      <img src="assets/llm/LLM-22.png" alt="LLM 22" />
-    </div>
-    <div class="next-project fade-up">
-      <a href="games-language.html" class="next-link">
-        <p class="next-label">Next project</p>
-        <p class="next-title">Games & Language Learning →</p>
-      </a>
-    </div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-01.png" alt="LLM 1" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-02.png" alt="LLM 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-03.png" alt="LLM 3" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-04.png" alt="LLM 4" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-05.png" alt="LLM 5" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-06.png" alt="LLM 6" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-07.png" alt="LLM 7" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-08.png" alt="LLM 8" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-09.png" alt="LLM 9" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-10.png" alt="LLM 10" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-11.png" alt="LLM 11" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-12.png" alt="LLM 12" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-13.png" alt="LLM 13" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-14.png" alt="LLM 14" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-15.png" alt="LLM 15" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-16.png" alt="LLM 16" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-17.png" alt="LLM 17" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-18.png" alt="LLM 18" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-19.png" alt="LLM 19" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-20.png" alt="LLM 20" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-21.png" alt="LLM 21" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/llm/LLM-22.png" alt="LLM 22" loading="lazy"/></div>
+  </div>
 
-    <footer>© 2026 Giang Do · Made with curiosity</footer>
+<div class="next-project">
+  <a href="design-system.html" class="proj-nav-item prev">
+    <span class="proj-nav-arrow">&#8249;</span>
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Previous</span>
+      <span class="proj-nav-title">Design System</span>
+    </div>
+  </a>
+  <a href="games-language.html" class="proj-nav-item next">
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Next</span>
+      <span class="proj-nav-title">Games &amp; Language Learning</span>
+    </div>
+    <span class="proj-nav-arrow">&#8250;</span>
+  </a>
+</div>
 
-    <script>
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-      const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
-      document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-    </script>
+  <footer>© 2026 Giang Do · Made with curiosity</footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
 </body>
-
 </html>

@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Design System — Giang Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Marope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      background: #0e1c14;
-      color: var(--cream);
-    }
-
-    nav.scrolled {
-      background: rgba(14, 28, 20, 0.94) !important;
-    }
+    body { background: #0e1c14; color: var(--cream); }
+    nav.scrolled { background: rgba(14,28,20,0.94) !important; }
   </style>
+  
 </head>
-
 <body class="theme-dark">
   <nav id="nav">
     <a href="index.html" class="nav-logo">Giang Do</a>
     <ul class="nav-links">
-      <li><a href="index.html#work">UX Design</a></li>
+      <li><a href="index.html#work" class="active">UX Design</a></li>
       <li><a href="ux-industry.html">UX Industry Work</a></li>
       <li><a href="graphic-design.html">Graphic Design</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
+    <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a>
+    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
+    <a href="cv.html" onclick="closeMenu()">CV</a>
+    <a href="about.html" onclick="closeMenu()">About</a>
+    <a href="contact.html" onclick="closeMenu()">Contact</a>
+  </div>
 
   <section class="case-hero">
     <p class="case-subtitle">Design Systems · Component Library</p>
-    <h1 class="case-title-text">FinFlow: Design System</h1>
+    <h1 class="case-title-text">Design System</h1>
   </section>
 
   <div class="marquee-wrapper">
@@ -56,7 +58,7 @@
     <div class="case-meta">
       <div class="meta-item">
         <div class="meta-label">Duration</div>
-        <div class="meta-value">4 Weeks</div>
+        <div class="meta-value">Ongoing</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">My Role</div>
@@ -64,7 +66,7 @@
       </div>
       <div class="meta-item">
         <div class="meta-label">Tools</div>
-        <div class="meta-value">Figma · Documentation</div>
+        <div class="meta-value">Figma · Token Studio · Documentation</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Type</div>
@@ -72,74 +74,85 @@
       </div>
     </div>
     <div class="case-description">
-      <p>A comprehensive design system project built to establish scalable, reusable component libraries with clear
-        design tokens, documentation, and governance principles.</p>
-      <p>This project covers the full spectrum of design system thinking — from atomic component design and token
-        architecture, through documentation strategy, to ensuring accessibility and consistency across product surfaces.
-      </p>
+      <p>A comprehensive design system project built to establish scalable, reusable component libraries with clear design tokens, documentation, and governance principles.</p>
+      <p>This project covers the full spectrum of design system thinking — from atomic component design and token architecture, through documentation strategy, to ensuring accessibility and consistency across product surfaces.</p>
     </div>
   </div>
 
   <div class="case-images">
-    <!-- <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Design system overview — component library ]</div>
-      <p class="img-caption">Component library overview</p>
-    </div>
-    <div class="img-row fade-up">
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Token architecture ]</div>
-        <p class="img-caption">Design tokens</p>
-      </div>
-      <div class="case-img-full">
-        <div class="img-placeholder">[ Atom / molecule components ]</div>
-        <p class="img-caption">Atomic components</p>
-      </div>
-    </div>
-    <div class="case-img-full fade-up">
-      <div class="img-placeholder">[ Documentation & usage guidelines ]</div>
-      <p class="img-caption">Documentation</p>
-    </div> -->
-    <div id="image-container"></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-02.png" alt="Design System 2" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-05.png" alt="Design System 5" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-06.png" alt="Design System 6" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-07.png" alt="Design System 7" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-08.png" alt="Design System 8" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-10.png" alt="Design System 10" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-11.png" alt="Design System 11" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-12.png" alt="Design System 12" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-13.png" alt="Design System 13" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-14.png" alt="Design System 14" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-15.png" alt="Design System 15" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-16.png" alt="Design System 16" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-17.png" alt="Design System 17" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-18.png" alt="Design System 18" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-19.png" alt="Design System 19" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-20.png" alt="Design System 20" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-21.png" alt="Design System 21" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-22.png" alt="Design System 22" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-23.png" alt="Design System 23" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-24.png" alt="Design System 24" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-25.png" alt="Design System 25" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-26.png" alt="Design System 26" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-27.png" alt="Design System 27" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-28.png" alt="Design System 28" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-29.png" alt="Design System 29" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-30.png" alt="Design System 30" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-31.png" alt="Design System 31" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-32.png" alt="Design System 32" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-33.png" alt="Design System 33" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-34.png" alt="Design System 34" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-35.png" alt="Design System 35" loading="lazy"/></div>
+    <div class="case-img-full fade-up"><img src="assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-36.png" alt="Design System 36" loading="lazy"/></div>
 
-    <script>
-      const container = document.getElementById("image-container");
-
-      const skipImages = [1, 3, 4, 9, 37, 38]; // numbers to skip
-
-      for (let i = 1; i <= 38; i++) {
-        if (skipImages.includes(i)) continue;
-
-        let num = i.toString().padStart(2, '0');
-
-        const div = document.createElement("div");
-        div.className = "case-img-full fade-up";
-
-        const img = document.createElement("img");
-        img.src = `assets/designsystem/TeamSummer_AID_Project Presentation_Finflow-${num}.png`;
-        img.alt = `Image ${num}`;
-        img.loading = "lazy";
-
-        div.appendChild(img);
-        container.appendChild(div);
-      }
-    </script>
   </div>
 
-  <div class="next-project fade-up">
-    <a href="llm-biases.html" class="next-link">
-      <p class="next-label">Next project</p>
-      <p class="next-title">LLM & Biases →</p>
-    </a>
-  </div>
+<div class="next-project">
+  <a href="fantastic-plastic.html" class="proj-nav-item prev">
+    <span class="proj-nav-arrow">&#8249;</span>
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Previous</span>
+      <span class="proj-nav-title">Fantastic Plastic</span>
+    </div>
+  </a>
+  <a href="llm-biases.html" class="proj-nav-item next">
+    <div class="proj-nav-text">
+      <span class="proj-nav-label">Next</span>
+      <span class="proj-nav-title">LLM &amp; Biases</span>
+    </div>
+    <span class="proj-nav-arrow">&#8250;</span>
+  </a>
+</div>
 
   <footer>© 2026 Giang Do · Made with curiosity</footer>
 
   <script>
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
   </script>
 </body>
-
 </html>
