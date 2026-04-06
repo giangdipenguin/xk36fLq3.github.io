@@ -4,9 +4,9 @@
 /* ── GLOBAL ── */
 :root {
   --green: #164123;
-  --cream: #f0ede6;
-  --yellow: #EDF581;
-  --blue: #E0EFFF;
+  --cream: #F4F2EA;
+  --yellow: #EFF483;
+  --blue: #DFEFFF;
   --purple: #e8e0ff;
 }
 
@@ -373,7 +373,7 @@ nav {
 /* ── FOOTER ── */
 footer {
   font-family: 'Poppins', sans-serif;
-  text-align: left;
+  text-align: center;
   padding: 2rem;
   font-size: 0.76rem;
   opacity: 1;
