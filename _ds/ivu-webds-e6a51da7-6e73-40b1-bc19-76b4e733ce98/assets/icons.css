@@ -1,0 +1,1023 @@
+@font-face {
+  font-family: ivu-icon-font;
+  src: url('./IconFont74.ttf') format('truetype');
+}
+
+.ivu-icon {
+  font-family: ivu-icon-font, ui-sans-serif !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-battery:before {
+  content: '\e900';
+}
+.icon-filter:before {
+  content: '\e901';
+}
+.icon-comment:before {
+  content: '\e902';
+}
+.icon-call-add:before {
+  content: '\e903';
+}
+.icon-scroll-top:before {
+  content: '\e904';
+}
+.icon-sort-time-down:before {
+  content: '\e905';
+}
+.icon-sort-prio:before {
+  content: '\e906';
+}
+.icon-detour:before {
+  content: '\e907';
+}
+.icon-help:before {
+  content: '\e908';
+}
+.icon-call:before {
+  content: '\e909';
+}
+.icon-bus:before {
+  content: '\e90a';
+}
+.icon-view-settings:before {
+  content: '\e90b';
+}
+.icon-logout:before {
+  content: '\e90c';
+}
+.icon-message:before {
+  content: '\e90d';
+}
+.icon-placeholder-filled:before {
+  content: '\e90e';
+}
+.icon-placeholder-outlined:before {
+  content: '\e90f';
+}
+.icon-menu-more-vertical:before {
+  content: '\e910';
+}
+.icon-menu-hamburger:before {
+  content: '\e911';
+}
+.icon-warning:before {
+  content: '\e912';
+}
+.icon-error:before {
+  content: '\e913';
+}
+.icon-broadcast:before {
+  content: '\e914';
+}
+.icon-info:before {
+  content: '\e915';
+}
+.icon-success:before {
+  content: '\e916';
+}
+.icon-emergency:before {
+  content: '\e917';
+}
+.icon-listen:before {
+  content: '\e918';
+}
+.icon-magnify:before {
+  content: '\e919';
+}
+.icon-microphone-hands-free:before {
+  content: '\e91a';
+}
+.icon-wait:before {
+  content: '\e91b';
+}
+.icon-search:before {
+  content: '\e91c';
+}
+.icon-offline:before {
+  content: '\e91d';
+}
+.icon-dash:before {
+  content: '\e91e';
+}
+.icon-via:before {
+  content: '\e91f';
+}
+.icon-current-time:before {
+  content: '\e920';
+}
+.icon-user:before {
+  content: '\e921';
+}
+.icon-busy:before {
+  content: '\e922';
+}
+.icon-speak:before {
+  content: '\e923';
+}
+.icon-visible:before {
+  content: '\e924';
+}
+.icon-visible-off:before {
+  content: '\e925';
+}
+.icon-arrow-down:before {
+  content: '\e926';
+}
+.icon-reset:before {
+  content: '\e927';
+}
+.icon-question:before {
+  content: '\e928';
+}
+.icon-check-checkbox:before {
+  content: '\e929';
+}
+.icon-open-requests:before {
+  content: '\e92a';
+}
+.icon-dashboard:before {
+  content: '\e92b';
+}
+.icon-cancel-trip:before {
+  content: '\e92c';
+}
+.icon-check:before {
+  content: '\e92d';
+}
+.icon-call-log:before {
+  content: '\e92e';
+}
+.icon-arrow-up:before {
+  content: '\e92f';
+}
+.icon-follow-vehicle:before {
+  content: '\e930';
+}
+.icon-menu-more-horizontal:before {
+  content: '\e931';
+}
+.icon-cancel-stop-point:before {
+  content: '\e932';
+}
+.icon-map:before {
+  content: '\e933';
+}
+.icon-focus-vehicle:before {
+  content: '\e934';
+}
+.icon-select-single:before {
+  content: '\e935';
+}
+.icon-select-multi:before {
+  content: '\e936';
+}
+.icon-select-area:before {
+  content: '\e937';
+}
+.icon-undo:before {
+  content: '\e938';
+}
+.icon-close:before {
+  content: '\e939';
+}
+.icon-lock-closed:before {
+  content: '\e93a';
+}
+.icon-line:before {
+  content: '\e93b';
+}
+.icon-driver:before {
+  content: '\e93c';
+}
+.icon-passenger:before {
+  content: '\e93d';
+}
+.icon-plus:before {
+  content: '\e93e';
+}
+.icon-minus:before {
+  content: '\e93f';
+}
+.icon-maximize:before {
+  content: '\e940';
+}
+.icon-location:before {
+  content: '\e941';
+}
+.icon-stop-point:before {
+  content: '\e942';
+}
+.icon-current-location:before {
+  content: '\e943';
+}
+.icon-drag-handle:before {
+  content: '\e944';
+}
+.icon-waveform:before {
+  content: '\e945';
+}
+.icon-lock-opened:before {
+  content: '\e946';
+}
+.icon-settings:before {
+  content: '\e947';
+}
+.icon-filter-activated:before {
+  content: '\e948';
+}
+.icon-accident:before {
+  content: '\e949';
+}
+.icon-microphone-on:before {
+  content: '\e94a';
+}
+.icon-microphone-off:before {
+  content: '\e94b';
+}
+.icon-edit:before {
+  content: '\e94c';
+}
+.icon-arrow-right:before {
+  content: '\e94d';
+}
+.icon-add:before {
+  content: '\e94e';
+}
+.icon-comparator-equal:before {
+  content: '\e94f';
+}
+.icon-arrow-right-double:before {
+  content: '\e950';
+}
+.icon-comparator-unequal:before {
+  content: '\e951';
+}
+.icon-comparator-less:before {
+  content: '\e952';
+}
+.icon-comparator-less-equal:before {
+  content: '\e953';
+}
+.icon-arrow-left:before {
+  content: '\e954';
+}
+.icon-call-end:before {
+  content: '\e955';
+}
+.icon-finish:before {
+  content: '\e956';
+}
+.icon-arrow-left-double:before {
+  content: '\e957';
+}
+.icon-delete:before {
+  content: '\e958';
+}
+.icon-send:before {
+  content: '\e959';
+}
+.icon-arrow-west:before {
+  content: '\e95a';
+}
+.icon-arrow-east:before {
+  content: '\e95b';
+}
+.icon-compass:before {
+  content: '\e95c';
+}
+.icon-speed:before {
+  content: '\e95d';
+}
+.icon-deviation-time:before {
+  content: '\e95e';
+}
+.icon-comparator-greater:before {
+  content: '\e95f';
+}
+.icon-microphone-locked:before {
+  content: '\e960';
+}
+.icon-comparator-greater-equal:before {
+  content: '\e961';
+}
+.icon-message-acknowledgment:before {
+  content: '\e962';
+}
+.icon-third-party-vehicle:before {
+  content: '\e963';
+}
+.icon-arrow-south:before {
+  content: '\e964';
+}
+.icon-block:before {
+  content: '\e965';
+}
+.icon-arrow-north:before {
+  content: '\e966';
+}
+.icon-comparator-blank:before {
+  content: '\e967';
+}
+.icon-bus-info:before {
+  content: '\e968';
+}
+.icon-comparator-not-blank:before {
+  content: '\e969';
+}
+.icon-online-operational:before {
+  content: '\e96a';
+}
+.icon-redo:before {
+  content: '\e96b';
+}
+.icon-online-technical:before {
+  content: '\e96c';
+}
+.icon-nobody-speaking:before {
+  content: '\e96d';
+}
+.icon-trip:before {
+  content: '\e96e';
+}
+.icon-duty:before {
+  content: '\e96f';
+}
+.icon-disruption-report:before {
+  content: '\e970';
+}
+.icon-protocol:before {
+  content: '\e971';
+}
+.icon-line-plus:before {
+  content: '\e972';
+}
+.icon-start:before {
+  content: '\e973';
+}
+.icon-active-incident:before {
+  content: '\e974';
+}
+.icon-incidents:before {
+  content: '\e975';
+}
+.icon-closed-incident:before {
+  content: '\e976';
+}
+.icon-archive:before {
+  content: '\e977';
+}
+.icon-draft:before {
+  content: '\e978';
+}
+.icon-drafts:before {
+  content: '\e979';
+}
+.icon-activate:before {
+  content: '\e97a';
+}
+.icon-reinforce:before {
+  content: '\e97b';
+}
+.icon-critical:before {
+  content: '\e97c';
+}
+.icon-low:before {
+  content: '\e97d';
+}
+.icon-medium:before {
+  content: '\e97e';
+}
+.icon-high:before {
+  content: '\e97f';
+}
+.icon-reinforce-block:before {
+  content: '\e980';
+}
+.icon-reinforce-trip:before {
+  content: '\e981';
+}
+.icon-early:before {
+  content: '\e982';
+}
+.icon-late:before {
+  content: '\e983';
+}
+.icon-too-late:before {
+  content: '\e984';
+}
+.icon-unknown:before {
+  content: '\e985';
+}
+.icon-pinned:before {
+  content: '\e986';
+}
+.icon-unpinned:before {
+  content: '\e987';
+}
+.icon-mark-all-read:before {
+  content: '\e988';
+}
+.icon-open:before {
+  content: '\e989';
+}
+.icon-play:before {
+  content: '\e98a';
+}
+.icon-remove-all-block:before {
+  content: '\e98b';
+}
+.icon-refresh:before {
+  content: '\e98c';
+}
+.icon-transmit:before {
+  content: '\e98d';
+}
+.icon-unread:before {
+  content: '\e98e';
+}
+.icon-unassigned:before {
+  content: '\e98f';
+}
+.icon-unassigned-for-x-hours:before {
+  content: '\e990';
+}
+.icon-my-open-tasks:before {
+  content: '\e991';
+}
+.icon-external-system:before {
+  content: '\e992';
+}
+.icon-check-switch:before {
+  content: '\e993';
+}
+.icon-open-status:before {
+  content: '\e994';
+}
+.icon-in-progress:before {
+  content: '\e995';
+}
+.icon-invalid-trip:before {
+  content: '\e996';
+}
+.icon-vehicle-on-time:before {
+  content: '\e997';
+}
+.icon-vehicles:before {
+  content: '\e998';
+}
+.icon-vehicle-details:before {
+  content: '\e999';
+}
+.icon-zoom:before {
+  content: '\e99a';
+}
+.icon-fetcher:before {
+  content: '\e99b';
+}
+.icon-feeder:before {
+  content: '\e99c';
+}
+.icon-walking-time:before {
+  content: '\e99d';
+}
+.icon-waiting-passenger:before {
+  content: '\e99e';
+}
+.icon-secured:before {
+  content: '\e99f';
+}
+.icon-connection-list:before {
+  content: '\e9a0';
+}
+.icon-connection-details:before {
+  content: '\e9a1';
+}
+.icon-connection-active:before {
+  content: '\e9a2';
+}
+.icon-language:before {
+  content: '\e9a3';
+}
+.icon-languages:before {
+  content: '\e9a4';
+}
+.icon-log-in:before {
+  content: '\e9a5';
+}
+.icon-reopen:before {
+  content: '\e9a6';
+}
+.icon-categories:before {
+  content: '\e9a7';
+}
+.icon-subcategories:before {
+  content: '\e9a8';
+}
+.icon-linking:before {
+  content: '\e9a9';
+}
+.icon-required:before {
+  content: '\e9aa';
+}
+.icon-not-linked:before {
+  content: '\e9ab';
+}
+.icon-sort-default:before {
+  content: '\e9ac';
+}
+.icon-status-edit:before {
+  content: '\e9ad';
+}
+.icon-status-remove:before {
+  content: '\e9ae';
+}
+.icon-recategorize:before {
+  content: '\e9af';
+}
+.icon-context:before {
+  content: '\e9b0';
+}
+.icon-arrow-top:before {
+  content: '\e9b1';
+}
+.icon-arrow-bottom:before {
+  content: '\e9b2';
+}
+.icon-mass-cancelation:before {
+  content: '\e9b3';
+}
+.icon-trips:before {
+  content: '\e9b4';
+}
+.icon-created-today:before {
+  content: '\e9b5';
+}
+.icon-closed-today:before {
+  content: '\e9b6';
+}
+.icon-activated-today:before {
+  content: '\e9b7';
+}
+.icon-allowed-fetcher-departure:before {
+  content: '\e9b8';
+}
+.icon-unresolved:before {
+  content: '\e9b9';
+}
+.icon-legend:before {
+  content: '\e9ba';
+}
+.icon-train:before {
+  content: '\e9bb';
+}
+.icon-context-linking:before {
+  content: '\e9bc';
+}
+.icon-change:before {
+  content: '\e9bd';
+}
+.icon-resolved:before {
+  content: '\e9be';
+}
+.icon-object-picker:before {
+  content: '\e9bf';
+}
+.icon-quick-scroll-up:before {
+  content: '\e9c0';
+}
+.icon-quick-scroll-down:before {
+  content: '\e9c1';
+}
+.icon-date-time-picker:before {
+  content: '\e9c2';
+}
+.icon-specific-information:before {
+  content: '\e9c3';
+}
+.icon-specific-information-group:before {
+  content: '\e9c4';
+}
+.icon-specific-information-linking:before {
+  content: '\e9c5';
+}
+.icon-select:before {
+  content: '\e9c6';
+}
+.icon-stop:before {
+  content: '\e9c7';
+}
+.icon-am:before {
+  content: '\e9c8';
+}
+.icon-pm:before {
+  content: '\e9c9';
+}
+.icon-start-finish:before {
+  content: '\e9ca';
+}
+.icon-electric:before {
+  content: '\e9cb';
+}
+.icon-too-early:before {
+  content: '\e9cc';
+}
+.icon-home:before {
+  content: '\e9cd';
+}
+.icon-vehicle-report:before {
+  content: '\e9ce';
+}
+.icon-charge-report:before {
+  content: '\e9cf';
+}
+.icon-charge-point:before {
+  content: '\e9d0';
+}
+.icon-charging-process:before {
+  content: '\e9d1';
+}
+.icon-energy:before {
+  content: '\e9d2';
+}
+.icon-charging-duration:before {
+  content: '\e9d3';
+}
+.icon-function:before {
+  content: '\e9d4';
+}
+.icon-between:before {
+  content: '\e9d5';
+}
+.icon-devices:before {
+  content: '\e9d6';
+}
+.icon-unsuccessful:before {
+  content: '\e9d7';
+}
+.icon-partial-cancel:before {
+  content: '\e9d8';
+}
+.icon-remove-finish:before {
+  content: '\e9d9';
+}
+.icon-remove-start:before {
+  content: '\e9da';
+}
+.icon-clock:before {
+  content: '\e9db';
+}
+.icon-focus-on-incident:before {
+  content: '\e9dc';
+}
+.icon-display-screen:before {
+  content: '\e9dd';
+}
+.icon-data-hub:before {
+  content: '\e9de';
+}
+.icon-repeat:before {
+  content: '\e9df';
+}
+.icon-issues-today:before {
+  content: '\e9e0';
+}
+.icon-devices-details:before {
+  content: '\e9e1';
+}
+.icon-trip-details:before {
+  content: '\e9e2';
+}
+.icon-time-table:before {
+  content: '\e9e3';
+}
+.icon-replacement:before {
+  content: '\e9e4';
+}
+.icon-block-details:before {
+  content: '\e9e5';
+}
+.icon-unassigned-devices:before {
+  content: '\e9e6';
+}
+.icon-assigned-devices:before {
+  content: '\e9e7';
+}
+.icon-in-repair:before {
+  content: '\e9e8';
+}
+.icon-devices-with-issues:before {
+  content: '\e9e9';
+}
+.icon-deactivate:before {
+  content: '\e9ea';
+}
+.icon-arrow-down-double:before {
+  content: '\e9eb';
+}
+.icon-arrow-up-double:before {
+  content: '\e9ec';
+}
+.icon-deselect:before {
+  content: '\e9ed';
+}
+.icon-smart-scroll:before {
+  content: '\e9ee';
+}
+.icon-connection-not-followed:before {
+  content: '\e9ef';
+}
+.icon-connection-successful:before {
+  content: '\e9f0';
+}
+.icon-connection-aborted:before {
+  content: '\e9f1';
+}
+.icon-connection-failed:before {
+  content: '\e9f2';
+}
+.icon-door-open:before {
+  content: '\e9f3';
+}
+.icon-traffic-light-signal:before {
+  content: '\e9f4';
+}
+.icon-school:before {
+  content: '\e9f5';
+}
+.icon-holiday:before {
+  content: '\e9f6';
+}
+.icon-tramset:before {
+  content: '\e9f7';
+}
+.icon-tram:before {
+  content: '\e9f8';
+}
+.icon-trainset:before {
+  content: '\e9f9';
+}
+.icon-metro:before {
+  content: '\e9fa';
+}
+.icon-traffic-cone:before {
+  content: '\e9fb';
+}
+.icon-battery-full:before {
+  content: '\e9fc';
+}
+.icon-battery-mid:before {
+  content: '\e9fd';
+}
+.icon-battery-low:before {
+  content: '\e9fe';
+}
+.icon-parking:before {
+  content: '\e9ff';
+}
+.icon-beacon:before {
+  content: '\ea00';
+}
+.icon-traffic-light:before {
+  content: '\ea01';
+}
+.icon-link-point:before {
+  content: '\ea02';
+}
+.icon-depot:before {
+  content: '\ea03';
+}
+.icon-export:before {
+  content: '\ea04';
+}
+.icon-import:before {
+  content: '\ea05';
+}
+.icon-folder-open:before {
+  content: '\ea06';
+}
+.icon-euro:before {
+  content: '\ea07';
+}
+.icon-efficiency:before {
+  content: '\ea08';
+}
+.icon-duplicate:before {
+  content: '\ea09';
+}
+.icon-ressources:before {
+  content: '\ea0a';
+}
+.icon-sort-ID:before {
+  content: '\ea0b';
+}
+.icon-distance:before {
+  content: '\ea0c';
+}
+.icon-break:before {
+  content: '\ea0d';
+}
+.icon-line-details:before {
+  content: '\ea0e';
+}
+.icon-timetable-details:before {
+  content: '\ea0f';
+}
+.icon-timetables:before {
+  content: '\ea10';
+}
+.icon-outward:before {
+  content: '\ea11';
+}
+.icon-backward:before {
+  content: '\ea12';
+}
+.icon-publish:before {
+  content: '\ea13';
+}
+.icon-pass-through:before {
+  content: '\ea14';
+}
+.icon-sync:before {
+  content: '\ea15';
+}
+.icon-driver-no:before {
+  content: '\ea16';
+}
+.icon-question-mark:before {
+  content: '\ea17';
+}
+.icon-HVAC:before {
+  content: '\ea18';
+}
+.icon-collapse-all:before {
+  content: '\ea19';
+}
+.icon-expand-all:before {
+  content: '\ea1a';
+}
+.icon-layers:before {
+  content: '\ea1b';
+}
+.icon-live:before {
+  content: '\ea1c';
+}
+.icon-internal-display-screen:before {
+  content: '\ea1d';
+}
+.icon-bubble-info:before {
+  content: '\ea1e';
+}
+.icon-bubbles-info:before {
+  content: '\ea1f';
+}
+.icon-block-assignment:before {
+  content: '\ea20';
+}
+.icon-polygon-remove:before {
+  content: '\ea21';
+}
+.icon-polygon:before {
+  content: '\ea22';
+}
+.icon-SEV:before {
+  content: '\ea23';
+}
+.icon-line-split:before {
+  content: '\ea24';
+}
+.icon-trigger:before {
+  content: '\ea25';
+}
+.icon-print:before {
+  content: '\ea26';
+}
+.icon-weight:before {
+  content: '\ea27';
+}
+.icon-turnaround:before {
+  content: '\ea28';
+}
+.icon-line-shuttle:before {
+  content: '\ea29';
+}
+.icon-stop-point-demand-true:before {
+  content: '\ea2a';
+}
+.icon-star-outlined:before {
+  content: '\ea2b';
+}
+.icon-star:before {
+  content: '\ea2c';
+}
+.icon-bank:before {
+  content: '\ea2d';
+}
+.icon-bank-details:before {
+  content: '\ea2e';
+}
+.icon-deposit:before {
+  content: '\ea2f';
+}
+.icon-3G:before {
+  content: '\ea30';
+}
+.icon-4G:before {
+  content: '\ea31';
+}
+.icon-2G:before {
+  content: '\ea32';
+}
+.icon-signal-4:before {
+  content: '\ea33';
+}
+.icon-signal-no:before {
+  content: '\ea34';
+}
+.icon-5G:before {
+  content: '\ea35';
+}
+.icon-signal-2:before {
+  content: '\ea36';
+}
+.icon-satellite-warning:before {
+  content: '\ea37';
+}
+.icon-signal-existing:before {
+  content: '\ea38';
+}
+.icon-satellite:before {
+  content: '\ea39';
+}
+.icon-satellite-outlined:before {
+  content: '\ea3a';
+}
+.icon-satellite-no:before {
+  content: '\ea3b';
+}
+.icon-signal-3:before {
+  content: '\ea3c';
+}
+.icon-signal-1:before {
+  content: '\ea3d';
+}
+.icon-signal-0:before {
+  content: '\ea3e';
+}
+.icon-satellites-warning:before {
+  content: '\ea3f';
+}
+.icon-wifi:before {
+  content: '\ea40';
+}
+.icon-depot-pass-through:before {
+  content: '\ea41';
+}
+.icon-depot-cancelled:before {
+  content: '\ea42';
+}
+.icon-stop-point-demand-false:before {
+  content: '\ea43';
+}
+.icon-database-setting:before {
+  content: '\ea44';
+}
+.icon-arrow-up-right:before {
+  content: '\ea45';
+}
+.icon-convert-to-via:before {
+  content: '\ea46';
+}
+.icon-roaming:before {
+  content: '\ea47';
+}
+.icon-pause:before {
+  content: '\ea48';
+}
+.icon-break-outlined:before {
+  content: '\ea49';
+}
+.icon-duties:before {
+  content: '\ea4a';
+}
+.icon-duty-details:before {
+  content: '\ea4b';
+}
+.icon-sort-time-up:before {
+  content: '\ea4c';
+}
+.icon-block-schedules:before {
+  content: '\ea4d';
+}
+.icon-block-schedule:before {
+  content: '\ea4e';
+}
+
+/**
+ * Make by Icon Font Exporter
+ * https://www.figma.com/community/plugin/1129455674275940478/Icon-Font-Exporter
+ */
+

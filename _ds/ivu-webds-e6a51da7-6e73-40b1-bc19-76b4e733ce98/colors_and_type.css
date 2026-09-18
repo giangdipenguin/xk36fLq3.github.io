@@ -1,0 +1,296 @@
+/* ============================================================
+   IVU.webDS — Colors & Type tokens
+   Sourced from webUI/libs/webUI/assets/theme/_theme.css
+   Brand: IVU Traffic Technologies — public transport operations
+   ============================================================ */
+
+/* ---------- Fonts ----------
+   Noto Sans variable font (wdth + wght axes, 100–900).
+   Single file covers every weight we use — Light 300 through ExtraBold 800.
+*/
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: local('Noto Sans'),
+       url('./fonts/NotoSans-VariableFont_wdth_wght.ttf') format('truetype-variations'),
+       url('./fonts/NotoSans-VariableFont_wdth_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: italic;
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: local('Noto Sans Italic'),
+       url('./fonts/NotoSans-Italic-VariableFont_wdth_wght.ttf') format('truetype-variations'),
+       url('./fonts/NotoSans-Italic-VariableFont_wdth_wght.ttf') format('truetype');
+}
+
+/* ---------- Tokens (CSS custom properties) ---------- */
+:root {
+  /* ===== Base palette ===== */
+  --ivu-white: #fafafa;          /* The IVU "white" — not pure #fff. App canvas. */
+  --black: #000000;
+  --view: #EBEEF0;               /* viewArea background — main app behind cards */
+
+  /* ===== Gray scale (numeric = lightness from 10..90) ===== */
+  --gray-10: #f4f4f4;
+  --gray-15: #ebebeb;
+  --gray-20: #e0e0e0;
+  --gray-25: #d1d1d1;
+  --gray-30: #c4c4c4;
+  --gray-40: #a8a8a8;
+  --gray-50: #8d8d8d;
+  --gray-55: #808080;
+  --gray-60: #6f6f6f;
+  --gray-70: #545454;
+  --gray-80: #393939;
+  --gray-85: #262626;
+  --gray-90: #161616;
+
+  /* ===== Primary (IVU deep blue — corporate identity) ===== */
+  --primary-500: #01518c;
+  --primary-500-10: #E6EEF4;     /* 10% tint surface */
+  --primary-500-16: #D6E3EC;     /* 16% tint surface */
+  --primary-700: #004079;        /* hover */
+  --primary-900: #00275c;        /* pressed */
+
+  /* ===== Secondary (Cyan — interactive accents, links, focus) ===== */
+  --secondary-500: #009ee3;
+  --secondary-500-13: #DEF3FC;
+  --secondary-500-16: #D6EFFA;
+  --secondary-700: #008cdc;
+  --secondary-900: #0070d0;
+
+  /* ===== Status: Error ===== */
+  --error-500: #C00B00;
+  --error-500-10: #F9E7E6;
+  --error-500-16: #F5D8D6;
+  --error-700: #9C0900;
+  --error-900: #750700;
+
+  /* ===== Status: Warning ===== */
+  --warning-500: #D76F00;
+  --warning-500-5:  #FDF8F2;
+  --warning-500-10: #FBF1E6;
+  --warning-500-13: #FAECDE;
+  --warning-500-16: #F8E8D6;
+  --warning-700: #AF5A00;
+  --warning-900: #944C00;
+
+  /* ===== Status: Success ===== */
+  --success-100: #EFF2B3;        /* "activated" pale chartreuse */
+  --success-500: #258135;
+  --success-500-10: #E9F3E9;
+  --success-500-16: #DBEBDB;
+  --success-700: #056F18;
+  --success-900: #005A10;
+
+  /* ===== Violet (priority / special category) ===== */
+  --violet-500: #843FAE;
+  --violet-500-16: #E3D8EA;
+  --violet-700: #6A338C;
+  --violet-900: #4E2567;
+
+  /* ===== Frame colors — chrome / app shell ===== */
+  --frame-primary:   #003A64;    /* NavBar background — IVU deep blue */
+  --frame-secondary: #E7EFF4;    /* AppBar header background */
+
+  /* ===== Interaction state tints ===== */
+  --hover:         #009ee3;      /* default hover indicator (cyan) */
+  --hover-white:   #E3F1F7;      /* hover wash for white surfaces */
+  --pressed:       #009ee3;
+  --pressed-white: #C8E8F5;      /* pressed wash for white surfaces */
+
+  --selected:               #CCECF9;    /* row / chip selected fill */
+  --selected-hovered:       #BAE5F7;
+  --selected-pressed:       #A3DDF4;
+  --selected-border-color:  #009EE3;
+
+  --activated:               #EFF2B3;   /* maygreen-tint = filter activated */
+  --activated-hovered:       #D9EAB3;
+  --activated-pressed:       #BFE2B3;
+  --activated-border-color:  #A2BB0C;
+
+  /* NavBar hover/pressed/selected all use cyan secondary */
+  --navbar-hover:    #009ee3;
+  --navbar-pressed:  #009ee3;
+  --navbar-selected: #009ee3;
+
+  /* ===== Accent palette (operational categories) ===== */
+  --petrol-400: #2CB6B6;
+  --petrol-600: #007E7E;
+  --maygreen-100: #EFF2B3;
+  --maygreen-500: #899200;
+  --maygreen-600: #707600;
+  --sun-50: #FFFBDF;
+  --sun-400: #BDA400;
+  --orange-100: #FCEBD8;
+  --violet-100: #F3EBF9;
+  --forest-100: #E6F0E8;
+  --coral-500: #E6604D;
+  --coral-700: #9F4235;
+
+  /* ===== Shadows ===== */
+  --shadow-10:        0px  3px 6px rgba(0, 0, 0, 0.10);
+  --shadow-30:        0px  3px 6px rgba(0, 0, 0, 0.30);
+  --shadow-r-30:      3px  0px 6px rgba(0, 0, 0, 0.30);
+  --shadow-l-30:     -3px  0px 6px rgba(0, 0, 0, 0.30);
+  --shadow-90:        0px  0px 6px rgba(0, 0, 0, 0.90);
+  --shadow-r-content: 5px  0px 6px rgba(250, 250, 250, 0.90);
+  --shadow-l-content:-5px  0px 6px rgba(250, 250, 250, 0.90);
+  --shadow-b-content: 0px  5px 6px rgba(250, 250, 250, 0.90);
+  --shadow-t-content: 0px -5px 6px rgba(250, 250, 250, 0.90);
+
+  /* ===== Radii — extremely conservative (utilitarian) ===== */
+  --radius-regular: 2px;
+  --radius-scrollbar: 2px;
+
+  /* ===== Borders ===== */
+  --border-regular: 1px;
+  --border-focus: 1px;
+
+  /* ===== Letter tracking ===== */
+  --tracking-label: 0.01em;
+
+  /* ===== Spacing (utility) ===== */
+  --spacing-aa: 3rem;        /* "appbar"-aligned 48px */
+  --size-scrollbar: 0.5rem;
+
+  /* =====================================================
+     Type — base styles
+     Stack: Noto Sans → HelveticaNeue → Noto Sans Arial
+     ===================================================== */
+  --font-noto-sans: 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-noto-sans);
+  --font-icon: 'ivu-icon-font', ui-sans-serif;
+
+  /* Type scale — Tailwind v4 names; sizes match Figma "Typography" page */
+  --text-xs: 0.75rem;     /*  12px */
+  --text-xs-lh: 1rem;     /*  16px */
+  --text-sm: 0.875rem;    /*  14px */
+  --text-sm-lh: 1.125rem; /*  18px (head) / 1.25rem body */
+  --text-base: 1rem;      /*  16px */
+  --text-base-lh: 1.3125rem; /* 21px head */
+  --text-lg: 1.125rem;    /*  18px */
+  --text-xl: 1.25rem;     /*  20px */
+  --text-xl-lh: 1.625rem; /*  26px head */
+  --text-2xl: 1.5rem;     /*  24px */
+  --text-3xl: 1.875rem;   /*  30px */
+  --text-4xl: 2.25rem;    /*  36px */
+  --text-6xl: 3.75rem;    /*  60px */
+}
+
+/* =====================================================
+   Semantic helper classes — paste-ready, named after
+   the Tailwind utilities used throughout the codebase.
+   ===================================================== */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--gray-90);
+  background: var(--ivu-white);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Body — text-base font-normal (the workhorse paragraph style) */
+.ivu-body {
+  font-size: var(--text-base);
+  line-height: var(--text-base-lh);
+  font-weight: 400;
+  color: var(--gray-90);
+}
+
+/* Body small — text-sm font-normal (table cells, secondary copy) */
+.ivu-body-sm {
+  font-size: var(--text-sm);
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: var(--gray-90);
+}
+
+/* Heading — text-base font-semibold (most "headings" inside panels) */
+.ivu-heading {
+  font-size: var(--text-base);
+  line-height: var(--text-base-lh);
+  font-weight: 600;
+  color: var(--gray-90);
+}
+
+/* Section heading — text-xl font-semibold (Dialogs, side panel title) */
+.ivu-heading-lg {
+  font-size: var(--text-xl);
+  line-height: var(--text-xl-lh);
+  font-weight: 600;
+  color: var(--gray-90);
+}
+
+/* Display — text-3xl font-light (empty-state numbers, KPI) */
+.ivu-display {
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--gray-90);
+}
+
+/* Display XL — text-6xl font-extrabold (rare; marketing/hero) */
+.ivu-display-xl {
+  font-size: var(--text-6xl);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--gray-90);
+}
+
+/* Label — text-sm font-normal, used on text fields */
+.ivu-label {
+  font-size: var(--text-sm);
+  line-height: 1.125rem;
+  font-weight: 400;
+  color: var(--gray-90);
+  letter-spacing: var(--tracking-label);
+}
+
+/* Caption — text-xs font-normal (counter, hints) */
+.ivu-caption {
+  font-size: var(--text-xs);
+  line-height: 1rem;
+  font-weight: 400;
+  color: var(--gray-70);
+}
+
+/* SCREAMER — text-sm font-extrabold UPPERCASE (rare; chip labels, badges) */
+.ivu-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gray-90);
+}
+
+/* Button / interactive label — text-sm font-medium */
+.ivu-action {
+  font-size: var(--text-sm);
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+}
+
+/* Link — secondary cyan, underline on hover */
+.ivu-text-link {
+  color: var(--secondary-900);
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+.ivu-text-link:hover { text-decoration: underline; }
+.ivu-text-link:active { text-decoration: underline; color: var(--primary-500); }
+
+/* Focus ring — 1 px primary inside, sometimes maygreen for "activated" */
+.ivu-focusable:focus-visible {
+  outline: var(--border-focus) solid var(--primary-500);
+  outline-offset: -1px;
+}

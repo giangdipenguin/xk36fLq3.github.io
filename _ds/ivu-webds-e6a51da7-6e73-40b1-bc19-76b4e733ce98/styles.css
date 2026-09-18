@@ -1,0 +1,8 @@
+/* ============================================================
+   IVU.webDS — root stylesheet
+   Aggregates the design system's global stylesheets so consumers
+   link a single file. (set-filter.component.css is component-scoped
+   and loaded with its component, not globally.)
+   ============================================================ */
+@import url('colors_and_type.css');
+@import url('assets/icons.css');
