@@ -35,7 +35,7 @@
   @media (max-width: 620px) {
     .gd-mast { gap: 14px 18px !important }
     .gd-spacer { height: 44px }
-    .gd-blurb p { max-width: none !important; font-size: 14px !important }
+    .gd-blurb p { max-width: none !important }
   }
   @media (max-width: 400px) {
     .gd-mast { grid-template-columns: 1fr auto !important }
@@ -76,13 +76,13 @@
   <main style="display:grid;grid-template-rows:auto auto auto;padding-bottom:clamp(22px,4.5vh,50px)">
 
     <div class="gd-mast" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(13px,2.7vw,43px);padding:clamp(18px,2.7vw,31px) clamp(18px,2vw,31px) 0;animation:gdUp .6s ease both">
-      <nav style="display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+      <nav style="display:flex;flex-direction:column;gap:12px;font-size:13px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase">
         <span onClick="{{ goWork }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">Work</span>
         <span onClick="{{ goAbout }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">About</span>
         <span onClick="{{ goContact }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">Contact</span>
       </nav>
 
-      <div class="gd-toggle" style="display:flex;gap:5px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;height:max-content">
+      <div class="gd-toggle" style="display:flex;gap:6px;font-size:13px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;height:max-content">
         <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><span onClick="{{ setLight }}" style="cursor:pointer;color:var(--ink)">Light</span></sc-if>
         <sc-if value="{{ isDarkTheme }}" hint-placeholder-val="{{ false }}"><span onClick="{{ setLight }}" style="cursor:pointer;color:var(--mute)">Light</span></sc-if>
         <span style="color:var(--mute)">/</span>
@@ -91,13 +91,13 @@
       </div>
 
       <div class="gd-blurb">
-        <div style="font-size: 22px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink)">Giang Do</div>
-        <p style="margin:13px 0 0;max-width:38ch;font-size:13px;line-height:1.5;color:var(--ink)">A UX/UI designer with six years across visual, interaction and system design. Curiosity got me here from animation; empathy shapes what I make.</p>
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink)">Giang Do</div>
+        <p style="margin:18px 0 0;max-width:44ch;font-size:15px;line-height:1.7;color:var(--ink)">A UX/UI designer with six years across visual, interaction and system design. Curiosity got me here from animation; empathy shapes what I make.</p>
       </div>
 
-      <div class="gd-clock" style="text-align:right;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+      <div class="gd-clock" style="text-align:right;font-size:13px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase">
         <div ref="{{ clockRef }}" style="color:var(--ink);font-variant-numeric:tabular-nums">—:—:— CET</div>
-        <div style="margin-top:5px;color:var(--mute)">KÖLN, DE</div>
+        <div style="margin-top:6px;color:var(--mute)">KÖLN, DE</div>
       </div>
     </div>
 
