@@ -1,355 +1,579 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giang Do — Giang Do</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: 'Manrope', Georgia, serif;
-      background: var(--yellow);
-      color: var(--green);
-      overflow-x: hidden;
-    }
-
-    nav {
-      background: transparent;
-      mix-blend-mode: normal;
-    }
-
-    nav.scrolled {
-      background: rgba(23, 56, 35, 0.92);
-      backdrop-filter: blur(8px);
-    }
-
-    .nav-logo {
-      color: var(--green) !important;
-    }
-
-    .nav-links a {
-      color: var(--green) !important;
-    }
-
-    .hero {
-      min-height: 100vh;
-      padding: 0 6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      padding-top: 8rem;
-      padding-bottom: 12rem;
-    }
-
-    .hero-heading {
-      font-size: clamp(3rem, 5.5vw, 4.6rem);
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: -0.015em;
-    }
-
-    .hero-heading em {
-      font-style: italic;
-    }
-
-    .hero-bio p {
-      font-size: 1.45rem;
-      font-weight: 600;
-      line-height: 1.4;
-      opacity: 0.88;
-    }
-
-    .hero-bio p+p {
-      margin-top: 1.2rem;
-    }
-
-    .wave-transition {
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-    }
-
-    .wave-transition svg {
-      display: block;
-      width: 100%;
-    }
-
-    .selected-work {
-      background: var(--green);
-      color: var(--cream);
-      padding: 5rem 3rem 7rem;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .section-header h2 {
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
-      font-weight: 400;
-      margin-bottom: 1rem;
-    }
-
-    .section-header p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 300;
-      opacity: 0.65;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 4px;
-      text-decoration: none;
-      display: block;
-    }
-
-    .project-card img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .project-card:hover img {
-      transform: scale(1.04);
-    }
-
-    .project-card-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(23, 56, 35, 0);
-      transition: background 0.3s;
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-    }
-
-    .project-card:hover .project-card-overlay {
-      background: rgba(23, 56, 35, 0.55);
-    }
-
-    .project-card-label {
-      color: white;
-      font-size: 1.6rem;
-      font-weight: 400;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-
-    .project-card:hover .project-card-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      background: var(--green);
-      color: var(--cream);
-      text-align: center;
-      padding: 2.5rem;
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.82rem;
-    }
-
-    .hero-heading,
-    .hero-bio {
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-bio {
-      animation-delay: 0.15s;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @media(max-width:768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding-top: 7rem;
-        padding-bottom: 8rem;
-      }
-
-      .hero {
-        padding: 0 1.5rem;
-      }
-
-      .hero-heading {
-        font-size: clamp(2.4rem, 9vw, 3.5rem);
-      }
-
-      .hero-bio p {
-        font-size: 1.1rem;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .selected-work {
-        padding: 3.5rem 1.5rem 5rem;
-      }
-
-      .section-header h2 {
-        font-size: 2rem;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/ivu-webds-e6a51da7-6e73-40b1-bc19-76b4e733ce98/colors_and_type.css">
+<link rel="stylesheet" href="_ds/ivu-webds-e6a51da7-6e73-40b1-bc19-76b4e733ce98/styles.css">
+<script src="_ds/ivu-webds-e6a51da7-6e73-40b1-bc19-76b4e733ce98/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin:0; --bg:#F2F2F0; --ink:#121210; --mute:#8d8d86; --line:#dcdcd6;
+    background:var(--bg); color:var(--ink);
+    font-family:'Archivo','Noto Sans','Helvetica Neue',Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  body.gd-dark { --bg:#121211; --ink:#F2F2F0; --mute:#77776f; --line:#2b2b28; }
+  a { color:var(--ink); text-decoration:none; }
+  a:hover { color:var(--mute); }
+  @keyframes gdUp { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+  @keyframes gdRail { from { transform:translateX(0) } to { transform:translateX(-50%) } }
+  @media (max-width: 1080px) { .gd-mast { grid-template-columns: 1fr auto auto !important } .gd-blurb { display:none } }
+  @media (max-width: 720px) { .gd-mast { grid-template-columns: 1fr auto !important } .gd-toggle { display:none } }
+</style>
+</helmet>
 
-<body class="theme-yellow">
-  <nav id="nav">
-    <a href="index.html" class="nav-logo">Giang Do</a>
-    <ul class="nav-links">
-      <li><a href="index.html#work" class="active">UX Design</a></li>
-      <!-- <li><a href="ux-industry.html">UX Industry Work</a></li> -->
-      <li><a href="graphic-design.html">Graphic Design</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-  <div class="nav-mobile-overlay" id="mobileMenu">
-    <button class="nav-overlay-close" onclick="closeMenu()" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="18" y1="6" x2="6" y2="18" />
-        <line x1="6" y1="6" x2="18" y2="18" />
-      </svg>
-    </button>
-    <a href="index.html#work" onclick="closeMenu()">UX Design</a>
-    <!-- <a href="ux-industry.html" onclick="closeMenu()">UX Industry Work</a> -->
-    <a href="graphic-design.html" onclick="closeMenu()">Graphic Design</a>
-    <a href="cv.html" onclick="closeMenu()">CV</a>
-    <a href="about.html" onclick="closeMenu()">About</a>
-    <a href="contact.html" onclick="closeMenu()">Contact</a>
-  </div>
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1 class="hero-heading">Hi, I'm Giang — and I design with <em>curiosity.</em></h1>
+<div style="min-height:100vh;background:var(--bg);overflow-x:hidden">
+
+  <sc-if value="{{ notHome }}" hint-placeholder-val="{{ false }}">
+  <header style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:26px clamp(20px,3vw,40px);border-bottom:1px solid var(--line)">
+    <span onClick="{{ goHome }}" style="cursor:pointer;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink)">Giang/Do</span>
+    <nav style="display:flex;gap:26px;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase">
+      <span onClick="{{ goWork }}" style="cursor:pointer;color:var(--ink)" style-hover="color:var(--mute)">Work</span>
+      <span onClick="{{ goAbout }}" style="cursor:pointer;color:var(--ink)" style-hover="color:var(--mute)">About</span>
+      <span onClick="{{ goContact }}" style="cursor:pointer;color:var(--ink)" style-hover="color:var(--mute)">Contact</span>
+    </nav>
+  </header>
+  </sc-if>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main style="display:grid;grid-template-rows:auto auto auto;padding-bottom:clamp(24px,5vh,56px)">
+
+    <div class="gd-mast" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,3vw,48px);padding:clamp(20px,3vw,34px) clamp(20px,2.2vw,34px) 0;animation:gdUp .6s ease both">
+      <nav style="display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+        <span onClick="{{ goWork }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">Work</span>
+        <span onClick="{{ goAbout }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">About</span>
+        <span onClick="{{ goContact }}" style="cursor:pointer;color:var(--ink);width:max-content" style-hover="color:var(--mute)">Contact</span>
+      </nav>
+
+      <div class="gd-toggle" style="display:flex;gap:6px;font-size:12px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;height:max-content">
+        <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><span onClick="{{ setLight }}" style="cursor:pointer;color:var(--ink)">Light</span></sc-if>
+        <sc-if value="{{ isDarkTheme }}" hint-placeholder-val="{{ false }}"><span onClick="{{ setLight }}" style="cursor:pointer;color:var(--mute)">Light</span></sc-if>
+        <span style="color:var(--mute)">/</span>
+        <sc-if value="{{ isDarkTheme }}" hint-placeholder-val="{{ false }}"><span onClick="{{ setDark }}" style="cursor:pointer;color:var(--ink)">Dark</span></sc-if>
+        <sc-if value="{{ isLight }}" hint-placeholder-val="{{ true }}"><span onClick="{{ setDark }}" style="cursor:pointer;color:var(--mute)">Dark</span></sc-if>
       </div>
-      <div class="hero-bio">
-        <p>I started out as an art director with an animation background, and somewhere along the way I fell in love
-          with the <em>why</em> behind design.</p>
-        <p>Now I'm a UX Designer specializing in design systems and multimodal interaction, combining visual craft with
-          research, and always asking one too many questions.</p>
+
+      <div class="gd-blurb">
+        <div style="font-size: 25px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink)">Giang Do</div>
+        <p style="margin:14px 0 0;max-width:38ch;font-size:14px;line-height:1.5;color:var(--ink)">UX/UI designer with experience in visual design, interaction design, and design systems. Experienced in Figma, agile teams, and scalable UI components.</p>
+      </div>
+
+      <div style="text-align:right;font-size:12px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+        <div ref="{{ clockRef }}" style="color:var(--ink);font-variant-numeric:tabular-nums">—:—:— CET</div>
+        <div style="margin-top:6px;color:var(--mute)">KÖLN, DE</div>
       </div>
     </div>
-    <div class="wave-transition">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" fill="#164123" />
-      </svg>
+
+    <div style="height: 124px"></div>
+
+    <div class="gd-rail" ref="{{ railRef }}" onPointerDown="{{ onDown }}" onPointerMove="{{ onMove }}" onPointerUp="{{ onUp }}" onPointerCancel="{{ onUp }}" onPointerLeave="{{ onUp }}" onWheel="{{ onWheel }}" style="overflow-x:auto;overflow-y:hidden;min-width:0;scrollbar-width:none;cursor:grab;touch-action:pan-y">
+    <div ref="{{ trackRef }}" style="display: flex; align-items: flex-end; gap: 6px; width: max-content; padding-top: 70px">
+      <sc-for list="{{ rail }}" as="t" hint-placeholder-count="6">
+        <figure onClick="{{ t.open }}" onMouseEnter="{{ hoverTile }}" onMouseLeave="{{ leaveTile }}" style="position:relative;flex:0 0 auto;margin:0;width:clamp(280px,28vw,500px);cursor:pointer;transition:transform .45s cubic-bezier(.16,.84,.44,1);transform-origin:bottom center" style-hover="transform:scale(1.1);z-index:3">
+          <figcaption style="position:absolute;left:0;right:0;top:-26px;display:flex;justify-content:space-between;gap:12px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink);opacity:0;transition:opacity .3s ease">
+            <span>{{ t.title }}</span><span style="color:var(--mute)">{{ t.category }}</span>
+          </figcaption>
+          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--line)">
+            <img ref="{{ t.imgRef }}" alt="" draggable="false" style="object-fit: cover; display: block; width: 100%; height: 100%">
+          </div>
+        </figure>
+      </sc-for>
     </div>
-  </section>
-  <section class="selected-work" id="work">
-    <div class="section-header">
-      <h2>Selected UX work</h2>
-      <p>UX design, industry projects, systems thinking, and research</p>
     </div>
-    <div class="project-grid">
-      <a href="ux-industry.html" class="project-card fade-up">
-        <img src="assets/images/ivu-thumb.png" alt="IVU Industry Work" />
-        <div class="project-card-overlay">
-          <span class="project-card-label">🔒 IVU — Industry Work </span>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isWork }}" hint-placeholder-val="{{ false }}">
+  <main style="padding:0 0 clamp(48px,8vh,96px)">
+    <section style="padding:clamp(22px,5vh,56px) clamp(20px,2.2vw,34px) 0">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:clamp(40px,10vh,120px)">
+        <h1 style="margin:0;font-size:clamp(46px,9vw,140px);font-weight:300;letter-spacing:-0.04em;line-height:0.92;color:var(--ink);animation:gdUp .6s ease both">Selected Work</h1>
+        <div style="text-align:right;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;white-space:nowrap">
+          <div style="color:var(--ink)">09 projects</div>
+          <div style="margin-top:6px;color:var(--mute)">2022 — 2026</div>
         </div>
-      </a>
-      <a href="foreverfit.html" class="project-card fade-up"><img src="assets/images/foreverfit-thumb.jpg"
-          alt="ForeverFit" />
-        <div class="project-card-overlay"><span class="project-card-label">ForeverFit</span></div>
-      </a>
+      </div>
+      <p style="margin:0 0 clamp(28px,5vh,56px);max-width:56ch;font-size:15px;line-height:1.6;color:var(--mute)">UX design, design systems, and research — industry work alongside academic projects.</p>
+      <div style="border-top:1px solid var(--line)"></div>
+    </section>
 
-      <a href="fashion-fiesta.html" class="project-card fade-up"><img src="assets/images/fashion-fiesta-thumb.jpg"
-          alt="Fashion Fiesta" />
-        <div class="project-card-overlay"><span class="project-card-label">Fashion Fiesta</span></div>
-      </a>
-      <a href="flexistay.html" class="project-card fade-up"><img src="assets/images/flexistay-thumb.jpg"
-          alt="FlexiStay" />
-        <div class="project-card-overlay"><span class="project-card-label">FlexiStay</span></div>
-      </a>
-      <a href="fantastic-plastic.html" class="project-card fade-up"><img src="assets/images/fantastic-plastic-thumb.jpg"
-          alt="Fantastic Plastic" />
-        <div class="project-card-overlay"><span class="project-card-label">Fantastic Plastic</span></div>
-      </a>
-      <a href="design-system.html" class="project-card fade-up"><img src="assets/images/design-system-thumb.jpg"
-          alt="Design System" />
-        <div class="project-card-overlay"><span class="project-card-label">Design System</span></div>
-      </a>
-      <a href="llm-biases.html" class="project-card fade-up"><img src="assets/images/llm-thumb.jpg"
-          alt="LLM & Biases" />
-        <div class="project-card-overlay"><span class="project-card-label">Large Language Models</span></div>
-      </a>
-      <a href="games-language.html" class="project-card fade-up"><img src="assets/images/games-language.jpg"
-          alt="Games & Language Learning" />
-        <div class="project-card-overlay"><span class="project-card-label">Games & Language Learning</span></div>
-      </a>
+    <section style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.4vw,20px);padding:clamp(28px,5vh,56px) clamp(20px,2.2vw,34px) 0">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="9">
+        <figure onClick="{{ p.open }}" style="margin:0;cursor:pointer">
+          <div style="width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--line)">
+            <img ref="{{ p.wideRef }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.16,.84,.44,1)" style-hover="transform:scale(1.03)">
+          </div>
+          <figcaption style="display:flex;justify-content:space-between;gap:12px;padding-top:12px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+            <span style="color:var(--ink)">{{ p.title }}</span>
+            <span style="color:var(--mute);text-align:right">{{ p.category }}</span>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="padding:clamp(32px,6vh,72px) clamp(20px,3vw,40px) clamp(20px,3vh,32px)">
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">{{ p_kicker }}</div>
+      <h1 style="margin:14px 0 0;font-size:clamp(34px,6.4vw,92px);font-weight:400;letter-spacing:-0.035em;line-height:1;color:var(--ink);animation:gdUp .6s ease both">{{ p_title }}</h1>
+    </section>
+    <div style="width:100%;padding:0 clamp(20px,3vw,40px);box-sizing:border-box">
+      <img ref="{{ heroImgRef }}" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--line)">
     </div>
-  </section>
-  <footer>© 2026 Giang Do</footer>
-  <script>
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function closeMenu() {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    const obs = new IntersectionObserver(entries => entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    }), { threshold: 0.08 });
-    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-  </script>
-</body>
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,4vw,64px);padding:clamp(28px,5vh,64px) clamp(20px,2.2vw,34px)">
+      <div>
+        <h2 style="margin:0 0 22px;font-size:20px;font-weight:500;letter-spacing:-0.01em;color:var(--ink)">Project details</h2>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Role</div>
+            <div style="margin-top:5px;font-size:15px;line-height:1.5;color:var(--ink)">{{ p_role }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Skills needed</div>
+            <div style="margin-top:5px;font-size:15px;line-height:1.5;color:var(--ink)">{{ p_skills }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Tools used</div>
+            <div style="margin-top:5px;font-size:15px;line-height:1.5;color:var(--ink)">{{ p_tools }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Duration</div>
+            <div style="margin-top:5px;font-size:15px;line-height:1.5;color:var(--ink)">{{ p_duration }}</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Type</div>
+            <div style="margin-top:5px;font-size:15px;line-height:1.5;color:var(--ink)">{{ p_type }}</div>
+          </div>
+        </div>
+      </div>
+      <div style="min-width:0">
+        <h2 style="margin:0 0 22px;font-size:20px;font-weight:500;letter-spacing:-0.01em;color:var(--ink)">The brief</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink);max-width:46ch">{{ p_brief }}</p>
+      </div>
+      <div style="min-width:0">
+        <h2 style="margin:0 0 22px;font-size:20px;font-weight:500;letter-spacing:-0.01em;color:var(--ink)">The solution</h2>
+        <p style="margin:0;font-size:16px;line-height:1.7;color:var(--ink);max-width:46ch">{{ p_solution }}</p>
+      </div>
+    </section>
+    <sc-if value="{{ p_proto }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:0 clamp(20px,2.2vw,34px) clamp(28px,5vh,56px)">
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute);margin-bottom:12px">Clickable prototype</div>
+      <div style="position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;background:var(--line)">
+        <iframe ref="{{ protoRef }}" title="Prototype" allowfullscreen="allowfullscreen" allow="fullscreen" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+    </section>
+    </sc-if>
 
+    <section style="display:flex;flex-direction:column;align-items:center;gap:clamp(12px,1.6vw,24px);padding:0 clamp(20px,2.2vw,34px) clamp(32px,6vh,80px)">
+      <sc-for list="{{ p_images }}" as="im" hint-placeholder-count="4">
+        <img ref="{{ im.ref }}" alt="" loading="lazy" style="width:100%;max-width:1100px;height:auto;display:block;margin:0 auto;background:var(--line)">
+      </sc-for>
+    </section>
+    <section style="display:flex;justify-content:space-between;gap:20px;padding:20px clamp(20px,3vw,40px);border-top:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+      <span onClick="{{ goWork }}" style="cursor:pointer;color:var(--ink)" style-hover="color:var(--mute)">← All work</span>
+      <span onClick="{{ nextProject }}" style="cursor:pointer;color:var(--ink);text-align:right" style-hover="color:var(--mute)">Next — {{ p_nextTitle }} →</span>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+  <main>
+    <section style="padding:clamp(26px,6vh,64px) clamp(20px,2.2vw,34px) clamp(28px,5vh,56px)">
+      <h1 style="margin:0;max-width:20ch;font-size:clamp(34px,6.4vw,104px);font-weight:300;letter-spacing:-0.04em;line-height:0.98;color:var(--ink);text-wrap:balance;animation:gdUp .6s ease both">From art direction to transit software.</h1>
+      <div style="margin-top:clamp(20px,4vh,40px);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Scroll to view more ↓</div>
+    </section>
+
+    <div style="padding:0 clamp(20px,2.2vw,34px)">
+      <div style="width:100%;max-width:520px;aspect-ratio:3/4;overflow:hidden;background:var(--line)">
+        <img src="assets/images/giang.jpg" alt="Giang Do" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block">
+      </div>
+    </div>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,56px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line)">
+      <div style="display:flex;flex-direction:column;gap:26px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+        <div><div style="color:var(--mute)">Role</div><div style="margin-top:8px;color:var(--ink)">UX / UI Designer</div></div>
+        <div><div style="color:var(--mute)">Location</div><div style="margin-top:8px;color:var(--ink)">Köln, Germany</div></div>
+        <div><div style="color:var(--mute)">Languages</div><div style="margin-top:8px;color:var(--ink)">German · English · Vietnamese</div></div>
+        <div><div style="color:var(--mute)">Services</div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;color:var(--ink)">
+            <span>Design systems</span><span>Interaction design</span><span>User research</span><span>Art direction &amp; motion</span>
+          </div>
+        </div>
+      </div>
+      <div style="grid-column:span 2;min-width:0;max-width:62ch">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Description</div>
+        <p style="margin:18px 0 0;font-size:clamp(16px,1.5vw,21px);line-height:1.55;color:var(--ink)">My name is Giang Do <span style="color:var(--mute)">/zang doe/</span>. If I had to describe myself in one word, it would be curiosity.</p>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:var(--ink)">I started my career as an art director and animator, then followed the question I couldn't stop asking: why do people struggle with things that should just work? That question turned me into a UX designer.</p>
+        <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:var(--ink)">Today I work fully in German at IVU Traffic Technologies in Aachen, living in Köln, contributing to B2B transit software products and the company-wide Figma design system. Before Germany, I lived and worked in Singapore and Vietnam. I'm finishing a Master's in Usability Engineering — which has only made me more curious about how people and interfaces meet.</p>
+      </div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,180px),1fr));gap:clamp(20px,3vw,48px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line)">
+      <div><div style="font-size:clamp(40px,6vw,88px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink)">09</div><div style="margin-top:10px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Projects shown</div></div>
+      <div><div style="font-size:clamp(40px,6vw,88px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink)">03</div><div style="margin-top:10px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Countries worked in</div></div>
+      <div><div style="font-size:clamp(40px,6vw,88px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink)">03</div><div style="margin-top:10px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Working languages</div></div>
+      <div><div style="font-size:clamp(40px,6vw,88px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink)">01</div><div style="margin-top:10px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Design system, company-wide</div></div>
+    </section>
+
+    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,56px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+      <div>
+        <div style="color:var(--mute)">Background</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
+          <span>Art direction &amp; animation</span><span>UX design</span><span>M.Sc. Usability Engineering</span>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--mute)">Practice</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
+          <span>Research &amp; interviews</span><span>Information architecture</span><span>Component architecture</span><span>Usability testing</span>
+        </div>
+      </div>
+      <div>
+        <div style="color:var(--mute)">Tools</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
+          <span>Figma · FigJam</span><span>Jira</span><span>Prototyping &amp; motion</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;padding:clamp(40px,8vh,112px) clamp(20px,2.2vw,34px)">
+      <h2 style="margin:0;max-width:16ch;font-size:clamp(28px,5vw,76px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink)">Have a project? Let's talk.</h2>
+      <span onClick="{{ goContact }}" style="cursor:pointer;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px" style-hover="color:var(--mute);border-color:var(--mute)">Start a conversation →</span>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+  <main style="padding:clamp(28px,6vh,72px) clamp(20px,2.2vw,34px) clamp(40px,8vh,96px)">
+    <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Contact</div>
+    <h1 style="margin:clamp(16px,3vh,28px) 0 0;max-width:14ch;font-size:clamp(44px,10vw,168px);font-weight:300;letter-spacing:-0.05em;line-height:0.92;color:var(--ink);animation:gdUp .6s ease both">Let's work together.</h1>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,96px);margin-top:clamp(40px,8vh,104px);border-top:1px solid var(--line);padding-top:clamp(24px,4vh,48px)">
+      <div style="display:flex;flex-direction:column;gap:clamp(24px,4vh,40px)">
+        <div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Email</div>
+          <a href="mailto:giangdo0517@gmail.com" style="display:inline-block;margin-top:10px;font-size:clamp(20px,2.4vw,32px);font-weight:400;letter-spacing:-0.02em;color:var(--ink)" style-hover="color:var(--mute)">giangdo0517@gmail.com</a>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Based in</div>
+          <div style="margin-top:10px;font-size:16px;line-height:1.6;color:var(--ink)">Köln, Germany — CET</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Languages</div>
+          <div style="margin-top:10px;font-size:16px;line-height:1.6;color:var(--ink)">German · English · Vietnamese</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Elsewhere</div>
+          <div style="display:flex;flex-wrap:wrap;gap:20px;margin-top:10px;font-size:16px">
+            <a href="https://www.linkedin.com/in/giangdo0517/" target="_blank">LinkedIn</a>
+            <a href="https://www.behance.net/giangdo0517" target="_blank">Behance</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Available for</div>
+          <div style="margin-top:10px;font-size:16px;line-height:1.6;color:var(--ink);max-width:34ch">Product and UX work, design systems, and freelance collaborations.</div>
+        </div>
+      </div>
+
+      <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:clamp(20px,3vh,32px);max-width:560px">
+        <div>
+          <label style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)" for="gd-name">Name</label>
+          <input id="gd-name" name="name" type="text" placeholder="Your name" required="" style="width:100%;box-sizing:border-box;margin-top:10px;padding:0 0 12px;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:inherit;font-size:16px;color:var(--ink);outline:none" style-focus="border-color:var(--ink)">
+        </div>
+        <div>
+          <label style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)" for="gd-email">Email</label>
+          <input id="gd-email" name="email" type="email" placeholder="you@studio.com" required="" style="width:100%;box-sizing:border-box;margin-top:10px;padding:0 0 12px;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:inherit;font-size:16px;color:var(--ink);outline:none" style-focus="border-color:var(--ink)">
+        </div>
+        <div>
+          <label style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)" for="gd-msg">Message</label>
+          <textarea id="gd-msg" name="message" rows="4" placeholder="Tell me about the project" required="" style="width:100%;box-sizing:border-box;margin-top:10px;padding:0 0 12px;border:0;border-bottom:1px solid var(--line);background:transparent;font-family:inherit;font-size:16px;color:var(--ink);outline:none;resize:vertical;line-height:1.6" style-focus="border-color:var(--ink)"></textarea>
+        </div>
+        <button type="submit" style="align-self:start;margin-top:8px;padding:14px 28px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-family:inherit;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;cursor:pointer;transition:background .25s ease,color .25s ease" style-hover="background:transparent;color:var(--ink)">Send message</button>
+        <div style="font-size:12px;line-height:1.6;color:var(--mute)">{{ formNote }}</div>
+      </form>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ notHome }}" hint-placeholder-val="{{ false }}">
+  <footer style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding:18px clamp(20px,3vw,40px);border-top:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">
+    <span>© 2026 Giang Do</span>
+    <span onClick="{{ goHome }}" style="cursor:pointer" style-hover="color:var(--ink)">Index</span>
+  </footer>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { view: 'home', index: 0, hoverSrc: 'assets/ivu/thumbnail.png', clock: '', dark: false };
+  previewRef = React.createRef();
+  railRef = React.createRef();
+  trackRef = React.createRef();
+  paused = false;
+  dragging = false;
+
+  data = [
+    { id: 'ivu',
+      skills: 'Design systems, UI design, Component architecture, Cross-team collaboration', tools: 'Figma, Jira, Notion',
+      brief: 'IVU Traffic Technologies builds B2B software for transit operators — dispatchers, planners, schedulers. Product teams needed consistent, dense interfaces across a wide product surface and a shared component language everyone could build from, delivered in a German-speaking environment.',
+      solution: 'Contributions to the company-wide Figma design system (webDS) alongside product work: components, states, and documentation developers can build against directly, applied to live transit software. Project detail is NDA protected.', num: '01', title: 'IVU — Industry work', category: 'Public transport / Corporate design', thumb: 'assets/ivu/thumbnail.png',
+      kicker: 'Industry work · NDA protected', duration: 'Jan 2025 — present', role: 'UX Designer · Design system contributor',
+      type: 'IVU Traffic Technologies, Aachen',
+      lead: 'B2B transit software products and the company-wide Figma design system (webDS), working entirely in German.',
+      body: 'Design that ships — real products, real constraints. Tools: Figma, Jira, and close collaboration with development. Project detail is NDA protected; happy to walk through the work in a conversation.' },
+    { id: 'finflow',
+      skills: 'Design systems, Component architecture, Design tokens, Documentation, Accessibility', tools: 'Figma, FigJam, Notion',
+      brief: 'A finance product needed a scalable foundation instead of one-off screens: reusable components, clear tokens, and governance so design decisions stayed consistent as the product surface grew.',
+      solution: 'A comprehensive design system covering atomic components and token architecture, a documentation strategy, and accessibility and consistency across product surfaces — built so teams can extend it without re-deciding the basics.', num: '02', title: 'FinFlow', category: 'Design system', thumb: 'assets/designsystem/thumbnail.png',
+      kicker: 'Design systems · Component library', duration: '3 weeks', role: 'Design System Designer · Component Architect',
+      type: 'Academic project — Design Systems course',
+      lead: 'A comprehensive design system built to establish scalable, reusable component libraries with clear design tokens, documentation, and governance principles.',
+      body: 'The project covers the full spectrum of design system thinking — from atomic component design and token architecture, through documentation strategy, to ensuring accessibility and consistency across product surfaces. Built in Figma and FigJam.' },
+    { id: 'foreverfit',
+      skills: 'UX research, Interview analysis, Information architecture, Usability testing, UI design', tools: 'Figma, FigJam, Miro',
+      brief: 'Older adults are underserved by fitness products built for younger, already-active users. The project needed a solution that encourages a healthier lifestyle without intimidating the people it is meant to help.',
+      solution: 'A wellness app offering personalised exercise programmes, motivational messages, and practical daily routine suggestions. My contributions spanned interview analysis, usability test strategy, information architecture, and marketing planning.', num: '03', title: 'ForeverFit', category: 'Research', thumb: 'assets/foreverfit/thumbnail.png',
+      kicker: 'UX design · University project', duration: '10 weeks', role: 'UX Researcher · UI Designer · Information Architect',
+      type: 'University group project — applied research',
+      lead: 'A comprehensive solution for older adults to promote a healthier lifestyle through personalised exercise programmes, uplifting motivational messages, and practical daily routine suggestions.',
+      body: 'My contributions spanned user interview analysis, designing usability test strategies, structuring information architecture, and planning targeted marketing initiatives.' },
+    { id: 'fashion-fiesta',
+      skills: 'UX research, Competitive analysis, Interaction design, UI design, Graphic design', tools: 'Figma, FigJam, Miro',
+      brief: 'In collaboration with Ainavio GmbH: online fashion shopping leaves people overwhelmed by choice and unsure about fit and style. The brief was to explore where AI genuinely helps rather than adds noise.',
+      solution: 'A shopping concept that uses AI to narrow choice and guide decisions. My role spanned the full process — user research and competitive analysis, concept development and interaction design, through to final UI delivery.', num: '04', title: 'Fashion Fiesta', category: 'AI · Retail', thumb: 'assets/fashionfiesta/thumbnail.png',
+      kicker: 'UX design · Industry collaboration', duration: '8 weeks', role: 'UX Researcher · UI Designer · Graphic Designer',
+      type: 'University course · Collaboration with Ainavio GmbH',
+      lead: 'Design solutions that tap into AI to solve online fashion shopping, completed in collaboration with Ainavio GmbH.',
+      body: 'My role spanned the full design process — early user research and competitive analysis, concept development and interaction design, through to final UI delivery.' },
+    { id: 'flexistay',
+      skills: 'Project management, UX research, UI design, Service design', tools: 'Figma, Miro, Jira',
+      brief: 'The tourism industry needed practical answers to unpredictable demand and rigid booking models — solutions that improve the traveller experience while making operators more resilient.',
+      solution: 'FlexiStay, a flexible accommodation concept matching short-notice stays with available space. As Project Manager I coordinated research and design sprints while contributing directly as UX Researcher and UI Designer.', num: '05', title: 'FlexiStay', category: 'Tourism', thumb: 'assets/flexistay/thumbnail.png',
+      kicker: 'UX design · Tourism', duration: '3 weeks', role: 'Project Manager · UX Researcher · UI Designer',
+      type: 'University group project · Tourism industry',
+      lead: 'A collaborative project addressing challenges within the tourism industry, generating practical design solutions that improve traveller experiences and industry resilience.',
+      body: 'As Project Manager I coordinated the team\'s research and design sprints while contributing directly as UX Researcher and UI Designer.' },
+    { id: 'fantastic-plastic',
+      skills: 'UX research, Interviewing, Storyboarding, Rapid prototyping', tools: 'Figma, FigJam, Miro',
+      brief: 'Evonik, a leader in the chemical industry, challenged the team to support plastic recycling and a circular economy through a web-based application — in five days, start to finish.',
+      solution: 'A sprint-built concept and prototype: rapid ideation, user interviews, storyboarding, and testing compressed into one week. A genuine test of design under pressure, and of deciding quickly what to leave out.', num: '06', title: 'Fantastic Plastic', category: 'Design sprint', thumb: 'assets/fantasticplastic/thumbnail.png',
+      kicker: 'Design sprint · Sustainability', duration: '5 days (22—26 April 2024)', role: 'UX Researcher · Storyboarder · Interviewer',
+      type: 'Sprint challenge with Evonik',
+      lead: 'Partnering with Evonik, a leader in the chemical industry, the team was challenged to develop a web-based application supporting plastic recycling and a circular economy.',
+      body: 'The sprint demanded rapid ideation, user interviews, storyboarding, and prototype development — all compressed into five days. A genuine test of design under pressure.' },
+    { id: 'llm',
+      skills: 'Study design, Interview facilitation, Qualitative analysis, Quantitative analysis', tools: 'Miro, Notion, Figma',
+      brief: 'Large language models reproduce social bias, but the effect on the people using them is less understood. The study needed a way to surface bias related to race and gender and to measure how users perceive model output.',
+      solution: 'A systematic HCI study combining interviews and measured interaction. As UX Researcher and Data Analyst I contributed to study design, interview facilitation, and both qualitative and quantitative analysis of participant responses.', num: '07', title: 'LLM & biases', category: 'HCI research', thumb: 'assets/llm/thumbnail.png',
+      kicker: 'HCI research · Large language models', duration: 'SS 2024', role: 'UX Researcher · Interviewer · Data Analyst',
+      type: 'Academic research — HCI study',
+      lead: 'A study systematically investigating potential biases in large language models related to race and gender, and measuring user interaction with and perception of LLMs.',
+      body: 'As UX Researcher and Data Analyst I contributed to study design, interview facilitation, and qualitative and quantitative analysis of participant responses.' },
+    { id: 'games',
+      skills: 'UX research, Competitive analysis, Synthesis, Design recommendations', tools: 'Miro, FigJam, Notion',
+      brief: 'Gamified language apps are everywhere, but engagement does not automatically mean learning. The project asked where play supports language acquisition and where it gets in the way.',
+      solution: 'A research study of existing gamified learning tools plus user research, synthesised into actionable design recommendations for more effective and more engaging learning experiences.', num: '08', title: 'Games & language learning', category: 'Gamification', thumb: 'assets/games/thumbnail.png',
+      kicker: 'UX research · Gamification', duration: '5 weeks', role: 'UX Researcher · Team member',
+      type: 'HCI research',
+      lead: 'How games can be leveraged as a medium for language learning — engagement patterns, learning outcomes, and the intersection of play and pedagogy through a UX research lens.',
+      body: 'The team investigated existing gamified language learning tools, conducted user research, and synthesised findings into actionable design recommendations for more effective and engaging learning experiences.' },
+    { id: 'graphic-design', num: '09', title: 'Graphic design', category: 'Graphic design / Animation · 2019—2023', thumb: 'assets/graphic-design/thumbnail.png',
+      skills: 'Brand identity, Art direction, Motion, Visual communication', tools: 'Adobe Illustrator, Photoshop, After Effects',
+      brief: 'Before UX, there was craft. Commercial and personal work made between 2019 and 2023 across Singapore and Vietnam — clients who needed an identity, a campaign, or a piece of motion, alongside personal work made to keep the hand moving.',
+      solution: 'A body of graphic design spanning brand identity, art direction, motion, and visual communication — the visual foundation the UX work is still built on.',
+      kicker: 'Graphic design · Art direction', duration: '2019 — 2023', role: 'Art Director · Graphic Designer · Animator',
+      type: 'Commercial and personal work',
+      lead: 'Commercial and personal design works from 2019—2023, spanning brand identity, art direction, motion and visual communication.',
+      body: 'Made between Singapore and Vietnam, before the move to UX. Happy to talk through any individual piece.' }
+  ];
+
+  componentDidMount() {
+    this.tick();
+    this.clockTimer = setInterval(() => this.tick(), 1000);
+    this.unpause = () => { this.paused = false; this.dragging = false; };
+    this.pos = 0;
+    const loop = () => {
+      const el = this.railRef.current;
+      if (el) {
+        const half = el.scrollWidth / 2;
+        if (this.paused || this.dragging) {
+          this.pos = el.scrollLeft;
+        } else if (half > 0) {
+          this.pos += 0.3;
+          if (this.pos >= half) this.pos -= half;
+          el.scrollLeft = this.pos;
+        }
+      }
+      this.raf = requestAnimationFrame(loop);
+    };
+    this.raf = requestAnimationFrame(loop);
+    this.railRef.current && this.railRef.current.addEventListener('mouseenter', () => { this.paused = true; });
+    this.railRef.current && this.railRef.current.addEventListener('mouseleave', () => { if (!this.dragging) this.paused = false; });
+    window.addEventListener('blur', this.unpause);
+    window.addEventListener('pointercancel', this.unpause);
+    window.addEventListener('pointerup', this.unpause);
+  }
+
+  componentWillUnmount() {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    window.removeEventListener('blur', this.unpause);
+    window.removeEventListener('pointercancel', this.unpause);
+    window.removeEventListener('pointerup', this.unpause);
+    clearInterval(this.clockTimer);
+    document.body.classList.remove('gd-dark');
+  }
+
+  clockRef = React.createRef();
+  protoRef = React.createRef();
+
+  folders = { 'ivu': 'ivu', 'finflow': 'designsystem', 'foreverfit': 'foreverfit', 'fashion-fiesta': 'fashionfiesta', 'flexistay': 'flexistay', 'fantastic-plastic': 'fantasticplastic', 'llm': 'llm', 'games': 'games', 'graphic-design': 'graphic-design' };
+  banners = { 'ivu': 'assets/ivu/banner.png', 'finflow': 'assets/designsystem/banner.jpg', 'foreverfit': 'assets/foreverfit/banner.jpg', 'fashion-fiesta': 'assets/fashionfiesta/banner.jpg', 'flexistay': 'assets/flexistay/banner.jpg', 'fantastic-plastic': 'assets/fantasticplastic/banner.png', 'llm': 'assets/llm/banner.png', 'games': 'assets/games/banner.jpg', 'graphic-design': 'assets/graphic-design/banner.png' };
+  caseSkip = { finflow: [1, 2, 3, 4, 5], 'graphic-design': [20], llm: [1] };
+  caseCounts = { ivu: 17, finflow: 38, foreverfit: 23, 'fashion-fiesta': 19, flexistay: 16, 'fantastic-plastic': 27, llm: 22, games: 26, 'graphic-design': 20 };
+  protos = {
+    foreverfit: 'https://embed.figma.com/proto/gEDS6YNChqYOQfCP2B21FO/Wellness-app-Wireframe?kind=proto&node-id=763-4181&scaling=scale-down&starting-point-node-id=763%3A4188&embed-host=share',
+    flexistay: 'https://embed.figma.com/proto/W5Mx5s1WjWiUSFKOoJkG4e/Prototypes?content-scaling=fixed&kind=proto&node-id=0-1080&page-id=0%3A1&scaling=min-zoom&starting-point-node-id=0%3A1137&embed-host=share',
+    'fashion-fiesta': 'https://embed.figma.com/proto/U7vFZsF47J2mkpiViUKj05/Prototyping?content-scaling=fixed&kind=proto&node-id=89-1846&page-id=85%3A272&scaling=scale-down&starting-point-node-id=89%3A2186&embed-host=share'
+  };
+
+  caseImages(id) {
+    const n = this.caseCounts[id] || 0;
+    const out = [];
+    const from = (id === 'graphic-design') ? 3 : 1;
+    const skip = (this.caseSkip[id] || []);
+    for (let i = from; i <= n; i++) {
+      if (skip.indexOf(i) !== -1) continue;
+      const pad = String(i).padStart(2, '0');
+      const ext = (id === 'fantastic-plastic' && i > 24) ? 'jpg' : 'png';
+      out.push({ id: id + '-' + pad, src: 'assets/' + (this.folders[id] || id) + '/' + pad + '.' + ext });
+    }
+    return out;
+  }
+
+  tick() {
+    const s = new Date().toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Berlin' });
+    const el = this.clockRef.current;
+    if (el) el.textContent = s + ' CET';
+  }
+
+  setTheme = (dark) => {
+    document.body.classList.toggle('gd-dark', dark);
+    this.setState({ dark: dark });
+  };
+
+  go = (view, index) => {
+    this.setState({ view: view, index: index == null ? this.state.index : index });
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'auto' });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const d = new FormData(e.target);
+    const subject = encodeURIComponent('Project enquiry — ' + (d.get('name') || ''));
+    const body = encodeURIComponent((d.get('message') || '') + '\n\n' + (d.get('name') || '') + '\n' + (d.get('email') || ''));
+    window.location.href = 'mailto:giangdo0517@gmail.com?subject=' + subject + '&body=' + body;
+    this.setState({ sent: true });
+  };
+
+  renderVals() {
+    const v = this.state.view;
+    const p = this.data[this.state.index] || this.data[0];
+    const next = this.data[(this.state.index + 1) % this.data.length];
+    const openAt = (i) => () => { if (this.moved) { this.moved = false; return; } this.go('project', i); };
+    const setSrc = (url) => (el) => { if (el && el.getAttribute('src') !== url) el.setAttribute('src', url); };
+    const projects = this.data.map((d, i) => Object.assign({}, d, {
+      open: openAt(i),
+      imgRef: setSrc(d.thumb),
+      wideRef: setSrc(this.banners[d.id] || d.thumb),
+      enter: () => {
+        this.setState({ hoverSrc: d.thumb });
+        const el = this.previewRef.current;
+        if (el) el.style.opacity = '1';
+      }
+    }));
+    return {
+      isHome: v === 'home', notHome: v !== 'home', isWork: v === 'work', isProject: v === 'project',
+      isAbout: v === 'about', isContact: v === 'contact',
+      isLight: !this.state.dark, isDarkTheme: this.state.dark,
+      setLight: () => this.setTheme(false), setDark: () => this.setTheme(true),
+      clockRef: this.clockRef,
+      goHome: () => this.go('home'), goWork: () => this.go('work'),
+      goAbout: () => this.go('about'), goContact: () => this.go('contact'),
+      nextProject: () => this.go('project', (this.state.index + 1) % this.data.length),
+      projects: projects,
+      rail: projects.concat(projects.map((d) => Object.assign({}, d, { id: d.id + '-b' }))),
+      railRef: this.railRef,
+      trackRef: this.trackRef,
+      hoverTile: (e) => {
+        const cap = e.currentTarget.querySelector('figcaption');
+        if (cap) cap.style.opacity = '1';
+      },
+      leaveTile: (e) => {
+        const cap = e.currentTarget.querySelector('figcaption');
+        if (cap) cap.style.opacity = '0';
+      },
+      onWheel: (e) => {
+        const el = this.railRef.current;
+        if (!el) return;
+        el.scrollLeft += Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      },
+      onDown: (e) => {
+        const el = this.railRef.current;
+        const tr = this.trackRef.current;
+        if (!el) return;
+        this.dragging = true;
+        this.moved = false;
+        this.dragX = e.clientX;
+        this.dragStart = el.scrollLeft;
+        el.style.cursor = 'grabbing';
+        this.paused = true;
+      },
+      onMove: (e) => {
+        const el = this.railRef.current;
+        if (!el || !this.dragging) return;
+        const dx = e.clientX - this.dragX;
+        if (Math.abs(dx) > 4) this.moved = true;
+        el.scrollLeft = this.dragStart - dx;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) { el.scrollLeft -= half; this.dragStart -= half; }
+        else if (el.scrollLeft <= 0) { el.scrollLeft += half; this.dragStart += half; }
+      },
+      onUp: (e) => {
+        const el = this.railRef.current;
+        const tr = this.trackRef.current;
+        if (!this.dragging) return;
+        this.dragging = false;
+        if (el) el.style.cursor = 'grab';
+        this.paused = false;
+      },
+      leaveRow: () => { const el = this.previewRef.current; if (el) el.style.opacity = '0'; },
+      trackPointer: (e) => {
+        const el = this.previewRef.current;
+        if (el) el.style.transform = 'translate3d(' + (e.clientX + 24) + 'px,' + (e.clientY - 140) + 'px,0)';
+      },
+      previewRef: this.previewRef,
+      hoverImgRef: setSrc(this.state.hoverSrc),
+      heroImgRef: setSrc(this.banners[p.id] || p.thumb),
+      p_id: p.id, p_title: p.title,
+      p_proto: this.protos[p.id] || '',
+      protoRef: (el) => { const u = this.protos[p.id]; if (el && u && el.getAttribute('src') !== u) el.setAttribute('src', u); },
+      p_images: this.caseImages(p.id).map((im) => ({ id: im.id, ref: setSrc(im.src) })), p_kicker: p.kicker, p_thumb: p.thumb, p_duration: p.duration,
+      p_role: p.role, p_type: p.type, p_lead: p.lead, p_body: p.body,
+      onSubmit: this.onSubmit,
+      formNote: this.state.sent ? 'Opening your mail client…' : 'Sending opens your mail client with the message ready to go.',
+      p_skills: p.skills, p_tools: p.tools, p_brief: p.brief, p_solution: p.solution,
+      p_nextTitle: next.title
+    };
+  }
+}
+</script>
+</body>
 </html>
