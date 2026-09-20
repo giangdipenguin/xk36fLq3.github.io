@@ -42,11 +42,18 @@
     .gd-clock { grid-column: 2 }
     .gd-toggle { display: none }
   }
-  /* rail tiles sized by height so they fill the lower half as the window narrows */
+  /* homepage fills the viewport; rail takes the leftover row so the bottom gap never moves */
+  .gd-home { height: 100vh; min-height: 560px; box-sizing: border-box }
+  @supports (height: 1svh) { .gd-home { height: 100svh } }
+  .gd-rail { min-height: 0 }
+  .gd-track { height: 100%; box-sizing: border-box; align-items: flex-end !important }
   .gd-tile { width: auto !important }
-  .gd-tileimg { width: auto !important; height: min(clamp(300px, 58vh, 640px), 112vw) }
-  @supports (height: 1svh) { .gd-tileimg { height: min(clamp(300px, 58svh, 640px), 112vw) } }
+  .gd-tileimg { width: auto !important; height: min(500px, 58vh, 92vw) !important }
+  @supports (height: 1svh) { .gd-tileimg { height: min(500px, 58svh, 92vw) !important } }
   @media (max-width: 620px) { .gd-track { padding-top: 30px !important } }
+
+  .gd-abt { grid-template-columns: minmax(0,520px) minmax(0,1fr) }
+  @media (max-width: 900px) { .gd-abt { grid-template-columns: 1fr } }
 
   .gd-grid { grid-template-columns: repeat(3, minmax(0,1fr)) }
   @media (max-width: 1000px) { .gd-grid { grid-template-columns: repeat(2, minmax(0,1fr)) } }
@@ -73,7 +80,7 @@
   </sc-if>
 
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-  <main style="display:grid;grid-template-rows:auto auto auto;padding-bottom:clamp(22px,4.5vh,50px)">
+  <main class="gd-home" style="display:grid;grid-template-rows:auto auto 1fr;padding-bottom:28px">
 
     <div class="gd-mast" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(13px,2.7vw,43px);padding:clamp(18px,2.7vw,31px) clamp(18px,2vw,31px) 0;animation:gdUp .6s ease both">
       <nav style="display:flex;flex-direction:column;gap:12px;font-size:13px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase">
@@ -104,14 +111,14 @@
     <div class="gd-spacer"></div>
 
     <div class="gd-rail" ref="{{ railRef }}" onPointerDown="{{ onDown }}" onPointerMove="{{ onMove }}" onPointerUp="{{ onUp }}" onPointerCancel="{{ onUp }}" onPointerLeave="{{ onUp }}" onWheel="{{ onWheel }}" style="overflow-x:auto;overflow-y:hidden;min-width:0;scrollbar-width:none;cursor:grab;touch-action:pan-y">
-    <div class="gd-track" ref="{{ trackRef }}" style="display: flex; align-items: flex-end; gap: 5px; width: max-content; padding-top: 63px">
+    <div class="gd-track" ref="{{ trackRef }}" style="display: flex; align-items: flex-end; gap: 8px; width: max-content; padding-top: 63px">
       <sc-for list="{{ rail }}" as="t" hint-placeholder-count="6">
         <figure class="gd-tile" onClick="{{ t.open }}" onMouseEnter="{{ hoverTile }}" onMouseLeave="{{ leaveTile }}" style="position:relative;flex:0 0 auto;margin:0;width:clamp(252px,25.2vw,450px);cursor:pointer;transition:transform .45s cubic-bezier(.16,.84,.44,1);transform-origin:bottom center" style-hover="transform:scale(1.1);z-index:3">
           <figcaption style="position:absolute;left:0;right:0;top:-23px;display:flex;justify-content:space-between;gap:11px;font-size:10px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink);opacity:0;transition:opacity .3s ease">
             <span>{{ t.title }}</span><span style="color:var(--mute)">{{ t.category }}</span>
           </figcaption>
-          <div class="gd-tileimg" style="width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--line)">
-            <img ref="{{ t.imgRef }}" alt="" draggable="false" style="object-fit: cover; display: block; width: 100%; height: 100%">
+          <div class="gd-tileimg" style="overflow:hidden">
+            <img ref="{{ t.imgRef }}" alt="" draggable="false" style="object-fit: contain; display: block; width: auto; height: 100%; max-width: 92vw">
           </div>
         </figure>
       </sc-for>
@@ -226,54 +233,47 @@
   <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
   <main>
     <section style="padding:clamp(26px,6vh,64px) clamp(20px,2.2vw,34px) clamp(28px,5vh,56px)">
-      <h1 style="margin:0;max-width:20ch;font-size:clamp(34px,6.4vw,104px);font-weight:300;letter-spacing:-0.04em;line-height:0.98;color:var(--ink);text-wrap:balance;animation:gdUp .6s ease both">From art direction to transit software.</h1>
+      <h1 style="margin:0;max-width:26ch;font-size:clamp(34px,6.4vw,104px);font-weight:300;letter-spacing:-0.04em;line-height:0.98;color:var(--ink);text-wrap:balance;animation:gdUp .6s ease both">Designed across public transport, retail, education and advertising.</h1>
       <div style="margin-top:clamp(20px,4vh,40px);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Scroll to view more ↓</div>
     </section>
 
-    <div style="padding:0 clamp(20px,2.2vw,34px)">
+    <section class="gd-abt" style="display:grid;gap:clamp(26px,3.5vw,60px);padding:0 clamp(20px,2.2vw,34px) clamp(32px,6vh,72px);border-bottom:1px solid var(--line);align-items:start">
+
       <div style="width:100%;max-width:520px;aspect-ratio:3/4;overflow:hidden;background:var(--line)">
         <img src="assets/images/giang.jpg" alt="Giang Do" style="width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block">
       </div>
-    </div>
 
-    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,56px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line)">
-      <div style="display:flex;flex-direction:column;gap:26px;font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
-        <div><div style="color:var(--mute)">Role</div><div style="margin-top:8px;color:var(--ink)">UX / UI Designer</div></div>
-        <div><div style="color:var(--mute)">Location</div><div style="margin-top:8px;color:var(--ink)">Köln, Germany</div></div>
-        <div><div style="color:var(--mute)">Languages</div><div style="margin-top:8px;color:var(--ink)">German · English · Vietnamese</div></div>
-        <div><div style="color:var(--mute)">Services</div>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;color:var(--ink)">
-            <span>Design systems</span><span>Interaction design</span><span>User research</span><span>Art direction &amp; motion</span>
+      <div style="min-width:0">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Description</div>
+        <p style="margin:18px 0 0;max-width:52ch;font-size:clamp(16px,1.5vw,21px);line-height:1.55;color:var(--ink)">My name is Giang Do <span style="color:var(--mute)">/zang doe/</span>. If I had to describe myself in one word, it would be curiosity.</p>
+        <p style="margin:18px 0 0;max-width:62ch;font-size:15px;line-height:1.75;color:var(--ink)">I started my career as an art director and animator, then followed the question I couldn't stop asking: why do people struggle with things that should just work? That question turned me into a UX designer.</p>
+        <p style="margin:18px 0 0;max-width:62ch;font-size:15px;line-height:1.75;color:var(--ink)">Today I work fully in German at IVU Traffic Technologies in Aachen, living in K&#246;ln, contributing to B2B transit software products and the company-wide Figma design system. Before Germany, I lived and worked in Singapore and Vietnam. I'm finishing a Master's in Usability Engineering &#8212; which has only made me more curious about how people and interfaces meet.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:26px clamp(20px,2.5vw,44px);margin-top:clamp(30px,4.5vh,52px);padding-top:clamp(26px,4vh,44px);border-top:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
+          <div><div style="color:var(--mute)">Role</div><div style="margin-top:10px;color:var(--ink)">UX / UI Designer</div></div>
+          <div><div style="color:var(--mute)">Languages</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px;color:var(--ink)">
+              <span>German</span><span>English</span><span>Vietnamese</span>
+            </div>
+          </div>
+          <div><div style="color:var(--mute)">Services</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px;color:var(--ink)">
+              <span>Design systems</span><span>Interaction design</span><span>User research</span><span>Art direction &amp; motion</span>
+            </div>
+          </div>
+          <div><div style="color:var(--mute)">Practice</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px;color:var(--ink)">
+              <span>Research &amp; interviews</span><span>Information architecture</span><span>Component architecture</span><span>Usability testing</span>
+            </div>
+          </div>
+          <div><div style="color:var(--mute)">Tools</div>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px;color:var(--ink)">
+              <span>Figma &#183; FigJam</span><span>Jira</span><span>Prototyping &amp; motion</span>
+            </div>
           </div>
         </div>
       </div>
-      <div style="grid-column:span 2;min-width:0;max-width:62ch">
-        <div style="font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase;color:var(--mute)">Description</div>
-        <p style="margin:18px 0 0;font-size:clamp(16px,1.5vw,21px);line-height:1.55;color:var(--ink)">My name is Giang Do <span style="color:var(--mute)">/zang doe/</span>. If I had to describe myself in one word, it would be curiosity.</p>
-        <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:var(--ink)">I started my career as an art director and animator, then followed the question I couldn't stop asking: why do people struggle with things that should just work? That question turned me into a UX designer.</p>
-        <p style="margin:18px 0 0;font-size:15px;line-height:1.75;color:var(--ink)">Today I work fully in German at IVU Traffic Technologies in Aachen, living in Köln, contributing to B2B transit software products and the company-wide Figma design system. Before Germany, I lived and worked in Singapore and Vietnam. I'm finishing a Master's in Usability Engineering — which has only made me more curious about how people and interfaces meet.</p>
-      </div>
-    </section>
 
-    <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:clamp(20px,3vw,56px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line);font-size:11px;font-weight:500;letter-spacing:0.13em;text-transform:uppercase">
-      <div>
-        <div style="color:var(--mute)">Background</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
-          <span>Art direction &amp; animation</span><span>UX design</span><span>M.Sc. Usability Engineering</span>
-        </div>
-      </div>
-      <div>
-        <div style="color:var(--mute)">Practice</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
-          <span>Research &amp; interviews</span><span>Information architecture</span><span>Component architecture</span><span>Usability testing</span>
-        </div>
-      </div>
-      <div>
-        <div style="color:var(--mute)">Tools</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;color:var(--ink)">
-          <span>Figma · FigJam</span><span>Jira</span><span>Prototyping &amp; motion</span>
-        </div>
-      </div>
     </section>
 
     <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(36px,5vw,88px);padding:clamp(32px,6vh,72px) clamp(20px,2.2vw,34px);border-bottom:1px solid var(--line)">
@@ -399,6 +399,7 @@ class Component extends DCLogic {
   trackRef = React.createRef();
   paused = false;
   dragging = false;
+  vel = 0;
 
   data = [
     { id: 'ivu',
@@ -484,7 +485,19 @@ class Component extends DCLogic {
       const el = this.railRef.current;
       if (el) {
         const half = el.scrollWidth / 2;
-        if (this.paused || this.dragging) {
+        if (this.dragging) {
+          this.pos = el.scrollLeft;
+        } else if (Math.abs(this.vel) > 0.08) {
+          // ease-out: glide on with exponential decay
+          el.scrollLeft += this.vel;
+          this.vel *= 0.935;
+          if (half > 0) {
+            if (el.scrollLeft >= half) el.scrollLeft -= half;
+            else if (el.scrollLeft <= 0) el.scrollLeft += half;
+          }
+          this.pos = el.scrollLeft;
+        } else if (this.paused) {
+          this.vel = 0;
           this.pos = el.scrollLeft;
         } else if (half > 0) {
           this.pos += 0.3;
@@ -500,10 +513,43 @@ class Component extends DCLogic {
     window.addEventListener('blur', this.unpause);
     window.addEventListener('pointercancel', this.unpause);
     window.addEventListener('pointerup', this.unpause);
+
+    // ---- eased vertical page scrolling (desktop pointers only) ----
+    const canSmooth = typeof window.matchMedia === 'function'
+      && !window.matchMedia('(hover: none)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (canSmooth) {
+      this.sTarget = window.scrollY;
+      this.sCurrent = window.scrollY;
+      this.sActive = false;
+      this.onWheelPage = (e) => {
+        if (e.ctrlKey) return;                                   // let pinch-zoom through
+        if (e.target && e.target.closest && e.target.closest('.gd-rail')) return;  // rail has its own easing
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        if (max <= 1) return;                                    // nothing to scroll (homepage)
+        e.preventDefault();
+        const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+        if (!this.sActive) { this.sCurrent = window.scrollY; this.sTarget = window.scrollY; }
+        this.sTarget = Math.max(0, Math.min(max, this.sTarget + e.deltaY * unit));
+        this.sActive = true;
+      };
+      window.addEventListener('wheel', this.onWheelPage, { passive: false });
+      const sLoop = () => {
+        if (this.sActive) {
+          const d = this.sTarget - this.sCurrent;
+          if (Math.abs(d) < 0.4) { this.sActive = false; }
+          else { this.sCurrent += d * 0.11; window.scrollTo(0, this.sCurrent); }
+        }
+        this.sRaf = requestAnimationFrame(sLoop);
+      };
+      this.sRaf = requestAnimationFrame(sLoop);
+    }
   }
 
   componentWillUnmount() {
     if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.sRaf) cancelAnimationFrame(this.sRaf);
+    if (this.onWheelPage) window.removeEventListener('wheel', this.onWheelPage);
     window.removeEventListener('blur', this.unpause);
     window.removeEventListener('pointercancel', this.unpause);
     window.removeEventListener('pointerup', this.unpause);
@@ -604,7 +650,10 @@ class Component extends DCLogic {
       onWheel: (e) => {
         const el = this.railRef.current;
         if (!el) return;
-        el.scrollLeft += Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        this.vel += d * 0.22;
+        if (this.vel > 42) this.vel = 42;
+        if (this.vel < -42) this.vel = -42;
       },
       onDown: (e) => {
         const el = this.railRef.current;
@@ -613,6 +662,8 @@ class Component extends DCLogic {
         this.dragging = true;
         this.moved = false;
         this.dragX = e.clientX;
+        this.lastX = e.clientX;
+        this.vel = 0;
         this.dragStart = el.scrollLeft;
         el.style.cursor = 'grabbing';
         this.paused = true;
@@ -623,6 +674,9 @@ class Component extends DCLogic {
         const dx = e.clientX - this.dragX;
         if (Math.abs(dx) > 4) this.moved = true;
         el.scrollLeft = this.dragStart - dx;
+        const step = e.clientX - this.lastX;
+        this.lastX = e.clientX;
+        this.vel = this.vel * 0.55 - step * 0.45;
         const half = el.scrollWidth / 2;
         if (el.scrollLeft >= half) { el.scrollLeft -= half; this.dragStart -= half; }
         else if (el.scrollLeft <= 0) { el.scrollLeft += half; this.dragStart += half; }
